@@ -1,4 +1,11 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/untitled1.dir/Aeroporto.cpp.obj"
+  "CMakeFiles/untitled1.dir/Aviao.cpp.obj"
+  "CMakeFiles/untitled1.dir/CarrinhoDeTransporte.cpp.obj"
+  "CMakeFiles/untitled1.dir/Passageiro.cpp.obj"
+  "CMakeFiles/untitled1.dir/Service.cpp.obj"
+  "CMakeFiles/untitled1.dir/TransporteTerrestre.cpp.obj"
+  "CMakeFiles/untitled1.dir/Voo.cpp.obj"
   "CMakeFiles/untitled1.dir/main.cpp.obj"
   "libuntitled1.dll.a"
   "untitled1.exe"

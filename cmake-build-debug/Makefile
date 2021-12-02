@@ -128,6 +128,174 @@ untitled1/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled1.dir\build.make CMakeFiles/untitled1.dir/build
 .PHONY : untitled1/fast
 
+Aeroporto.obj: Aeroporto.cpp.obj
+.PHONY : Aeroporto.obj
+
+# target to build an object file
+Aeroporto.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled1.dir\build.make CMakeFiles/untitled1.dir/Aeroporto.cpp.obj
+.PHONY : Aeroporto.cpp.obj
+
+Aeroporto.i: Aeroporto.cpp.i
+.PHONY : Aeroporto.i
+
+# target to preprocess a source file
+Aeroporto.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled1.dir\build.make CMakeFiles/untitled1.dir/Aeroporto.cpp.i
+.PHONY : Aeroporto.cpp.i
+
+Aeroporto.s: Aeroporto.cpp.s
+.PHONY : Aeroporto.s
+
+# target to generate assembly for a file
+Aeroporto.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled1.dir\build.make CMakeFiles/untitled1.dir/Aeroporto.cpp.s
+.PHONY : Aeroporto.cpp.s
+
+Aviao.obj: Aviao.cpp.obj
+.PHONY : Aviao.obj
+
+# target to build an object file
+Aviao.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled1.dir\build.make CMakeFiles/untitled1.dir/Aviao.cpp.obj
+.PHONY : Aviao.cpp.obj
+
+Aviao.i: Aviao.cpp.i
+.PHONY : Aviao.i
+
+# target to preprocess a source file
+Aviao.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled1.dir\build.make CMakeFiles/untitled1.dir/Aviao.cpp.i
+.PHONY : Aviao.cpp.i
+
+Aviao.s: Aviao.cpp.s
+.PHONY : Aviao.s
+
+# target to generate assembly for a file
+Aviao.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled1.dir\build.make CMakeFiles/untitled1.dir/Aviao.cpp.s
+.PHONY : Aviao.cpp.s
+
+CarrinhoDeTransporte.obj: CarrinhoDeTransporte.cpp.obj
+.PHONY : CarrinhoDeTransporte.obj
+
+# target to build an object file
+CarrinhoDeTransporte.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled1.dir\build.make CMakeFiles/untitled1.dir/CarrinhoDeTransporte.cpp.obj
+.PHONY : CarrinhoDeTransporte.cpp.obj
+
+CarrinhoDeTransporte.i: CarrinhoDeTransporte.cpp.i
+.PHONY : CarrinhoDeTransporte.i
+
+# target to preprocess a source file
+CarrinhoDeTransporte.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled1.dir\build.make CMakeFiles/untitled1.dir/CarrinhoDeTransporte.cpp.i
+.PHONY : CarrinhoDeTransporte.cpp.i
+
+CarrinhoDeTransporte.s: CarrinhoDeTransporte.cpp.s
+.PHONY : CarrinhoDeTransporte.s
+
+# target to generate assembly for a file
+CarrinhoDeTransporte.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled1.dir\build.make CMakeFiles/untitled1.dir/CarrinhoDeTransporte.cpp.s
+.PHONY : CarrinhoDeTransporte.cpp.s
+
+Passageiro.obj: Passageiro.cpp.obj
+.PHONY : Passageiro.obj
+
+# target to build an object file
+Passageiro.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled1.dir\build.make CMakeFiles/untitled1.dir/Passageiro.cpp.obj
+.PHONY : Passageiro.cpp.obj
+
+Passageiro.i: Passageiro.cpp.i
+.PHONY : Passageiro.i
+
+# target to preprocess a source file
+Passageiro.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled1.dir\build.make CMakeFiles/untitled1.dir/Passageiro.cpp.i
+.PHONY : Passageiro.cpp.i
+
+Passageiro.s: Passageiro.cpp.s
+.PHONY : Passageiro.s
+
+# target to generate assembly for a file
+Passageiro.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled1.dir\build.make CMakeFiles/untitled1.dir/Passageiro.cpp.s
+.PHONY : Passageiro.cpp.s
+
+Service.obj: Service.cpp.obj
+.PHONY : Service.obj
+
+# target to build an object file
+Service.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled1.dir\build.make CMakeFiles/untitled1.dir/Service.cpp.obj
+.PHONY : Service.cpp.obj
+
+Service.i: Service.cpp.i
+.PHONY : Service.i
+
+# target to preprocess a source file
+Service.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled1.dir\build.make CMakeFiles/untitled1.dir/Service.cpp.i
+.PHONY : Service.cpp.i
+
+Service.s: Service.cpp.s
+.PHONY : Service.s
+
+# target to generate assembly for a file
+Service.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled1.dir\build.make CMakeFiles/untitled1.dir/Service.cpp.s
+.PHONY : Service.cpp.s
+
+TransporteTerrestre.obj: TransporteTerrestre.cpp.obj
+.PHONY : TransporteTerrestre.obj
+
+# target to build an object file
+TransporteTerrestre.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled1.dir\build.make CMakeFiles/untitled1.dir/TransporteTerrestre.cpp.obj
+.PHONY : TransporteTerrestre.cpp.obj
+
+TransporteTerrestre.i: TransporteTerrestre.cpp.i
+.PHONY : TransporteTerrestre.i
+
+# target to preprocess a source file
+TransporteTerrestre.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled1.dir\build.make CMakeFiles/untitled1.dir/TransporteTerrestre.cpp.i
+.PHONY : TransporteTerrestre.cpp.i
+
+TransporteTerrestre.s: TransporteTerrestre.cpp.s
+.PHONY : TransporteTerrestre.s
+
+# target to generate assembly for a file
+TransporteTerrestre.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled1.dir\build.make CMakeFiles/untitled1.dir/TransporteTerrestre.cpp.s
+.PHONY : TransporteTerrestre.cpp.s
+
+Voo.obj: Voo.cpp.obj
+.PHONY : Voo.obj
+
+# target to build an object file
+Voo.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled1.dir\build.make CMakeFiles/untitled1.dir/Voo.cpp.obj
+.PHONY : Voo.cpp.obj
+
+Voo.i: Voo.cpp.i
+.PHONY : Voo.i
+
+# target to preprocess a source file
+Voo.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled1.dir\build.make CMakeFiles/untitled1.dir/Voo.cpp.i
+.PHONY : Voo.cpp.i
+
+Voo.s: Voo.cpp.s
+.PHONY : Voo.s
+
+# target to generate assembly for a file
+Voo.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled1.dir\build.make CMakeFiles/untitled1.dir/Voo.cpp.s
+.PHONY : Voo.cpp.s
+
 main.obj: main.cpp.obj
 .PHONY : main.obj
 
@@ -161,6 +329,27 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... untitled1
+	@echo ... Aeroporto.obj
+	@echo ... Aeroporto.i
+	@echo ... Aeroporto.s
+	@echo ... Aviao.obj
+	@echo ... Aviao.i
+	@echo ... Aviao.s
+	@echo ... CarrinhoDeTransporte.obj
+	@echo ... CarrinhoDeTransporte.i
+	@echo ... CarrinhoDeTransporte.s
+	@echo ... Passageiro.obj
+	@echo ... Passageiro.i
+	@echo ... Passageiro.s
+	@echo ... Service.obj
+	@echo ... Service.i
+	@echo ... Service.s
+	@echo ... TransporteTerrestre.obj
+	@echo ... TransporteTerrestre.i
+	@echo ... TransporteTerrestre.s
+	@echo ... Voo.obj
+	@echo ... Voo.i
+	@echo ... Voo.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
