@@ -6,7 +6,7 @@
 #define UNTITLED1_CARRINHODETRANSPORTE_H
 
 
-#include "cmake-build-debug/Carruagem.h"
+#include "Carruagem.h"
 #include <vector>
 using namespace std;
 

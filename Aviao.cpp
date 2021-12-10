@@ -24,20 +24,20 @@ void Aviao::setCapacidade(int capacidade) {
     Aviao::capacidade = capacidade;
 }
 
-const queue<Service> &Aviao::getServiços() const {
-    return serviços;
+const queue<Service> &Aviao::getServices() const {
+    return services;
 }
 
-void Aviao::addServiços(const Service) {
-    Aviao::serviços = serviços;
+void Aviao::addServices(const Service) {
+    Aviao::services = services;
 }
 
 void Aviao::addVoo(const Voo) {
     Aviao::plano = plano;
 }
 
-void Aviao::setLotaçao() { //Sets the capacity of each flight equal to the plane's capacity
+void Aviao::setCapacity() { //Sets the capacity of each flight equal to the plane's capacity
     for (int i=0;i<this->plano.size();i++){
-        plano[i].setLotaçao(this->capacidade);
+        plano[i].setCapacity(this->capacidade);
     }
 }

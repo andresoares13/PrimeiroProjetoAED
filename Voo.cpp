@@ -13,8 +13,8 @@ string Voo::getPartida() const {
     return partida;
 }
 
-int Voo::getDuraçao() const {
-    return duraçao;
+int Voo::getDuration() const {
+    return duration;
 }
 
 const string &Voo::getOrigem() const {
@@ -33,8 +33,8 @@ void Voo::setPartida(int partida) {
     Voo::partida = partida;
 }
 
-void Voo::setDuraçao(int duraçao) {
-    Voo::duraçao = duraçao;
+void Voo::setDuration(int duration) {
+    Voo::duration = duration;
 }
 
 void Voo::setOrigem(const string &origem) {
@@ -45,10 +45,10 @@ void Voo::setDestino(const string &destino) {
     Voo::destino = destino;
 }
 
-int Voo::getLotaçao() const {
-    return lotaçao;
+int Voo::getCapacity() const {
+    return capacity;
 }
 
-void Voo::setLotaçao(int lotaçao) {
-    Voo::lotaçao = lotaçao;
+void Voo::setCapacity(int capacity) {
+    Voo::capacity = capacity;
 }

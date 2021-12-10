@@ -15,7 +15,7 @@ using namespace std;
 
 class Aviao {
 public:
-    Aviao(string matricula, int capacidade, vector<Voo> plano, queue<Service> serviços);
+    Aviao(string matricula, int capacidade, vector<Voo> plano, queue<Service> services);
 
     const string &getMatricula() const;
 
@@ -23,7 +23,7 @@ public:
 
     const vector<Voo> &getPlano() const;
 
-    const queue<Service> &getServiços() const;
+    const queue<Service> &getServices() const;
 
     void setMatricula(const string &matricula);
 
@@ -31,16 +31,16 @@ public:
 
     void addVoo(const Voo);
 
-    void addServiços(const Service);
+    void addServices(const Service);
 
-    void setLotaçao();
+    void setCapacity();
 
 
 private:
     string matricula;
     int capacidade;
     vector<Voo> plano;
-    queue<Service> serviços;
+    queue<Service> services;
 };
 
 
