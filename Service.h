@@ -8,24 +8,20 @@
 #include <vector>
 using namespace std;
 
+using namespace std;
+
 class Service {
 public:
     Service(string tipo, string data, string funcionario);
-
-    const string &getTipo() const;
-
-    const string &getData() const;
-
-    const string &getFuncionario() const;
-
-    void setTipo(const string &tipo);
-
-    void setData(const string &data);
-
-    void setFuncionario(const string &funcionario);
+    string getTipo() const; //porquê o const atrás
+    string getData() const;
+    string getFuncionario() const;
+    string setFuncionario() const;
+    bool changeData(string date);  //muda a data do serviço para date se essa data for antes do próximo voo
+    bool operator < (Service &servico);
 
 private:
-    string tipo;
+    string tipo; //manutenção/limpeza
     string data;
     string funcionario;
 };

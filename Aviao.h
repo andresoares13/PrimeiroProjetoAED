@@ -8,6 +8,7 @@
 #include <vector>
 #include "Voo.h"
 #include "Service.h"
+#include "Passageiro.h"
 #include <queue>
 
 using namespace std;
@@ -15,32 +16,33 @@ using namespace std;
 
 class Aviao {
 public:
-    Aviao(string matricula, int capacidade, vector<Voo> plano, queue<Service> services);
-
-    const string &getMatricula() const;
-
+    Aviao(string matricula, string tipo, int capacidade, vector<Voo> plano, queue<Service> servicesRealizar);
+    string getMatricula() const;
+    string getTipo() const;
     int getCapacidade() const;
-
-    const vector<Voo> &getPlano() const;
-
-    const queue<Service> &getServices() const;
-
-    void setMatricula(const string &matricula);
-
-    void setCapacidade(int capacidade);
-
+    vector<Voo> getPlano() const;
+    queue<Service> getServicesRealizados() const;
+    queue<Service> getServicesRealizar() const;
     void addVoo(const Voo);
-
     void addServices(const Service);
-
-    void setCapacity();
+    bool removeFuncionario(const string funcinario); //remove o funcionário e divide os serviços a realizar pelos restantes funcionários e apaga os serviços realizados
+    void removeService(const string tipo, const string data);
+    vector<Voo> findVooOrigem(string origem);
+    vector<Voo> findVooDestino(string destino);
+    vector<Voo> findVooPartida(string partida);
+    vector<Passageiro> removeVoo(Voo &voo);
+    bool isBroken() const;
+    void setBroken() const;
 
 
 private:
     string matricula;
-    int capacidade;
-    vector<Voo> plano;
-    queue<Service> services;
+    string tipo;
+    int capacity;
+    vector<Voo> plano; //mudar para list
+    queue<Service> servicesRealizados; //distinguir os serviços realizados dos a realizar
+    queue<Service> servicesRealizar;
+    bool state; //queremos que seja uma string?
 };
 
 

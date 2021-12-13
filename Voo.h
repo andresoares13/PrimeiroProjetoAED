@@ -6,44 +6,37 @@
 #define UNTITLED1_VOO_H
 #include <string>
 #include <vector>
+#include "Passageiro.h"
+#include <list>
+
 using namespace std;
 
 class Voo {
 public:
     Voo(int numero, string partida, int duration, string origem, string destino);
-
     int getNumero() const;
-
     string getPartida() const;
-
     int getDuration() const;
-
-    const string &getOrigem() const;
-
-    const string &getDestino() const;
-
+    string getOrigem() const;
+    string getDestino() const;
     int getCapacity() const;
-
-    void setNumero(int numero);
-
-    void setPartida(int partida);
-
-    void setDuration(int duration);
-
-    void setOrigem(const string &origem);
-
-    void setDestino(const string &destino);
-
-    void setCapacity(int capacity);
-
+    int getProfit() const;   //dinheiro que vais ser feito com o voo
+    int getTicketPrice() const;
+    int ticketsAvailable() const;
+    list<Passageiro> getPassageiros() const;
+    bool addPassageiro(Passageiro &p); //adiciona passageiro se o nº de bilhetes que quer comprar for inferior ou igual aos lugares disponíveis
+    bool removePassageiro(int ID); //caso o passageiro com esse ID exista, remove-o
+    Passageiro& findPassageiro(int ID);
 
 private:
     int numero;
-    string partida;
+    string partida; //data de partida
     int duration;
     string origem;
     string destino;
+    int ticketprice;
     int capacity;
+    vector<Passageiro> passageiros;
 };
 
 

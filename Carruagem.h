@@ -6,18 +6,21 @@
 #define UNTITLED1_CARRUAGEM_H
 #include <stack>
 #include <vector>
+#include "Bagagem.h"
+
 using namespace std;
 
 
 class Carruagem {
 public:
-    Carruagem(int pilhas);
-    void setN(int n);
+    Carruagem(int pilhas, int malas);
+    bool isFull() const;
+    vector<Bagagem> getBagagemS() const;
 
 private:
-    int n;
-    vector<stack<int>> chariot;
-
+    int malasPorStack; //número de malas por pilha
+    int capacity; //número de pilhas da carruagem
+    vector<stack<Bagagem>> carruagem;
 };
 
 

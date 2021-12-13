@@ -8,22 +8,17 @@
 
 class Passageiro {
 public:
-    Passageiro(bool bagagem);
-
+    Passageiro(int ID, int num_tickets, bool bagagem);
     bool isBagagem() const;
-
     bool isCheckin() const;
-
-    void setBagagem(bool bagagem);
-
+    int getNumTickets() const;
+    int getID() const;
+    void setNumTickets(int num);
     void setCheckin(bool checkin);
 
-    bool Canbuy(int bilhetes); //receives the number of tickets to see if it's possible to buy them or not
-
-    int MaybuyTickets(int bilhetes); //given the number of tickets the passenger wants to buy, return the amount possible
-
-
 private:
+    int ID; //número de identificação do passageiro
+    int num_tickets;
     bool bagagem;
     bool checkin;
 };

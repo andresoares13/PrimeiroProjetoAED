@@ -6,8 +6,14 @@
 #define UNTITLED1_AEROPORTO_H
 
 
-class Aeroporto {
+#include "Aviao.h"
 
+class Aeroporto {
+public:
+    vector<Aviao> getPlanes() const;
+
+private:
+    vector<Aviao> planes;
 };
 
 

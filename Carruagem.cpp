@@ -4,15 +4,6 @@
 
 #include "Carruagem.h"
 
-Carruagem::Carruagem(int pilhas) {
-    int counter=1;
-    for (int i=0;i<pilhas;i++){
-        stack<int> p;
-        p.push(counter);
-        chariot.push_back(p);
-    }
-}
+Carruagem::Carruagem(int pilhas, int malas) {
 
-void Carruagem::setN(int n) {
-    Carruagem::n = n;
 }
