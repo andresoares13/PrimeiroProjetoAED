@@ -4,6 +4,12 @@
 
 #include "Passageiro.h"
 
+Passageiro::Passageiro(int ID, int num_tickets, bool bagagem) {
+    this->ID=ID;
+    this->num_tickets=num_tickets;
+    this->bagagem=bagagem;
+}
+
 bool Passageiro::isBagagem() const {
     return bagagem;
 }
@@ -12,14 +18,20 @@ bool Passageiro::isCheckin() const {
     return checkin;
 }
 
-void Passageiro::setCheckin(bool checkin) { //por que é que isto está escrito desta maneira?
+int Passageiro::getID() const {
+    return this->ID;
+}
+
+void Passageiro::setCheckin(bool checkin) {
     Passageiro::checkin = checkin;
 }
 
-int Passageiro::getNumTickets() const { //Sofia
+int Passageiro::getNumTickets() const {
     return num_tickets;
 }
 
-void Passageiro::setNumTickets(int num) { //Sofia
+void Passageiro::setNumTickets(int num) {
     this-> num_tickets = num;
 }
+
+

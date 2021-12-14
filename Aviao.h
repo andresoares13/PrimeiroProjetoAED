@@ -23,16 +23,17 @@ public:
     vector<Voo> getPlano() const;
     queue<Service> getServicesRealizados() const;
     queue<Service> getServicesRealizar() const;
-    void addVoo(const Voo);
-    void addServices(const Service);
+    bool isBroken() const;
+    void setBroken() ;
+    void addVoo(const Voo& voo);
+    void addServices(const Service& service); //adiciona um serviço a realizar
     bool removeFuncionario(const string funcinario); //remove o funcionário e divide os serviços a realizar pelos restantes funcionários e apaga os serviços realizados
     void removeService(const string tipo, const string data);
     vector<Voo> findVooOrigem(string origem);
     vector<Voo> findVooDestino(string destino);
     vector<Voo> findVooPartida(string partida);
     vector<Passageiro> removeVoo(Voo &voo);
-    bool isBroken() const;
-    void setBroken() const;
+
 
 
 private:

@@ -15,7 +15,8 @@ class Carruagem {
 public:
     Carruagem(int pilhas, int malas);
     bool isFull() const;
-    vector<Bagagem> getBagagemS() const;
+    vector<Bagagem> getBagagemS() const;    //retorna todas as malas da carruagem
+    void popAllBags() const;      //retira todas as malas da carruagem
 
 private:
     int malasPorStack; //número de malas por pilha

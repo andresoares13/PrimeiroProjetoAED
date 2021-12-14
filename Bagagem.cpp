@@ -3,3 +3,16 @@
 //
 
 #include "Bagagem.h"
+
+Bagagem::Bagagem(int ID, int peso) {
+    this->ID=ID;
+    this->peso=peso;
+}
+
+int Bagagem::getID() const {
+    return this->ID;
+}
+
+int Bagagem::getPeso() const {
+    return this->peso;
+}
