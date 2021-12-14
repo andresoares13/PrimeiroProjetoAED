@@ -13,7 +13,7 @@ using namespace std;
 
 class Voo {
 public:
-    Voo(int numero, string partida, int duration, string origem, string destino);
+    Voo(int numero, string partida, int duration, string origem, string destino,int capacity);
     int getNumero() const;
     string getPartida() const;
     int getDuration() const;
@@ -27,6 +27,7 @@ public:
     bool addPassageiro(Passageiro &p); //adiciona passageiro se o nº de bilhetes que quer comprar for inferior ou igual aos lugares disponíveis
     bool removePassageiro(int ID); //caso o passageiro com esse ID exista, remove-o
     Passageiro& findPassageiro(int ID);
+    int numCarruagens(int pilha, int mala) const;
 
 private:
     int numero;

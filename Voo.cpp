@@ -2,6 +2,8 @@
 // Created by andre on 02-12-2021.
 //
 
+#include <cmath>
+#include <stdexcept>
 #include "Voo.h"
 
 
@@ -83,7 +85,24 @@ Passageiro &Voo::findPassageiro(int ID) {
     {
         if(passageiros[i].getID() == ID)
         {
-            //return ;
+            return passageiros[i];
         }
     }
+    throw logic_error("Passenger does not exist");
+}
+
+
+int Voo::numCarruagens(int pilha,int mala) const{
+    int p=passageiros.size();
+    int c=ceil(p/(pilha*mala));
+    return c;
+}
+
+Voo::Voo(int numero, string partida, int duration, string origem, string destino, int capacity) {
+    this->numero=numero;
+    this->partida=partida;
+    this->origem=origem;
+    this->destino=destino;
+    this->duration=duration;
+    this->capacity=capacity;
 }

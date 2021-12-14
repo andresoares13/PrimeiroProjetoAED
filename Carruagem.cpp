@@ -17,6 +17,7 @@ bool Carruagem::isFull() const {
     return true;
 }
 
+
 vector<Bagagem> Carruagem::getBagagemS() const {
     vector<Bagagem> res;
     vector<stack<Bagagem>> temp=carruagem;
