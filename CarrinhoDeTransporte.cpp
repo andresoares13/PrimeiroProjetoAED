@@ -2,6 +2,7 @@
 // Created by andre on 02-12-2021.
 //
 
+#include <iostream>
 #include "CarrinhoDeTransporte.h"
 
 
@@ -20,7 +21,37 @@ vector<Bagagem> CarrinhoDeTransporte::getBagagem() const {
     return temp;
 }
 
+void CarrinhoDeTransporte::AddBagagem(Bagagem bag){
+    for (int i=0;i<carrinho.size();i++){
+        if (carrinho[i].AddBag(bag)==false){
+            continue;
+        }
+        else{
+            break;
+        }
+    }
+}
 
+bool CarrinhoDeTransporte::ClearCar() {
+    bool pop=false;
+    for(int i=0;i<carrinho.size();i++){
+        carrinho[i].PopAllBags();
+    }
+    for(int i=0;i<carrinho.size();i++){
+        pop=carrinho[i].isClear();
+    }
+    if (pop){
+        cout<<"The transportation car is totally clear"<<endl;
+        return true;
+    }
+    else{
+        cout<<"The transportation car is not totally clear"<<endl;
+        return false;
+    }
+
+
+
+}
 
 
 

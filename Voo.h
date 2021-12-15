@@ -24,7 +24,7 @@ public:
     int getProfit() const;   //dinheiro que vais ser feito com o voo
     int getTicketPrice() const;
     int ticketsAvailable() const;
-    list<Passageiro> getPassageiros() const;
+    vector<Passageiro> getPassageiros() const;
     bool addPassageiro(Passageiro &p); //adiciona passageiro se o nº de bilhetes que quer comprar for inferior ou igual aos lugares disponíveis
     bool removePassageiro(int ID); //caso o passageiro com esse ID exista, remove-o
     Passageiro& findPassageiro(int ID);

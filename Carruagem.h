@@ -17,6 +17,10 @@ public:
     bool isFull() const;
     vector<Bagagem> getBagagemS() const;    //retorna todas as malas da carruagem
     void popAllBags() const;      //retira todas as malas da carruagem
+    bool AddBag(Bagagem bag); //adds the bag, returns false if the chariot is full
+    void PopAllBags();
+    bool isClear() const;
+    //string get();
 
 private:
     int malasPorStack; //número de malas por pilha

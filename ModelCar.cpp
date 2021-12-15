@@ -2,6 +2,7 @@
 // Created by andre on 15-12-2021.
 //
 
+#include <stdexcept>
 #include "ModelCar.h"
 
 ModelCar::ModelCar(string type) {
@@ -10,13 +11,13 @@ ModelCar::ModelCar(string type) {
         malas=10;
         this->type=type;
     }
-    if (type=="Y"){
+    else if (type=="Y"){
         pilhas=5;
         malas=5;
         this->type=type;
     }
     else{
-
+        throw invalid_argument("That model does not exist");
     }
 }
 

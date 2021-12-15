@@ -50,8 +50,8 @@ int Voo::ticketsAvailable() const {
     return capacity - passageiros.size();
 }
 
-list<Passageiro> Voo::getPassageiros() const {
-    return list<Passageiro>();
+vector<Passageiro> Voo::getPassageiros() const {
+    return passageiros;
 }
 
 bool Voo::addPassageiro(Passageiro &p) {

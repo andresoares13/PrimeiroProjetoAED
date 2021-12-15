@@ -2,6 +2,7 @@
 // Created by up202004161 on 03/12/2021.
 //
 
+#include <iostream>
 #include "Carruagem.h"
 
 Carruagem::Carruagem(int pilhas, int malas) {
@@ -37,3 +38,42 @@ vector<Bagagem> Carruagem::getBagagemS() const {
 void Carruagem::popAllBags() const {
 
 }
+
+bool Carruagem::AddBag(Bagagem bag){
+    for (int i=0;i<carruagem.size();i++){
+        if (carruagem[i].size()<malasPorStack){
+            carruagem[i].push(bag);
+            return true;
+        }
+    }
+    return false;
+}
+
+void Carruagem::PopAllBags() {
+    for(int i=0;i<carruagem.size();i++){
+        while(carruagem[i].size()>0){
+            carruagem[i].pop();
+        }
+    }
+}
+
+
+
+bool Carruagem::isClear() const {
+    bool p=true;
+    for (int i=0;i<carruagem[i].size();i++){
+        if(carruagem[i].size()!=0){
+            p=false;
+        }
+    }
+    return p;
+}
+
+/*
+string Carruagem::get() {
+    for (int i=0;i<carruagem.size();i++){
+        cout<<carruagem[i].size()<<endl;
+    }
+    return "";
+}
+*/

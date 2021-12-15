@@ -10,6 +10,7 @@
 
 class Aeroporto {
 public:
+    Aeroporto();
     vector<Aviao> getPlanes() const;
 
 private:
