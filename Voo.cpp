@@ -8,6 +8,7 @@
 #include "Voo.h"
 
 
+
 int Voo::getNumero() const {
     return numero;
 }
@@ -93,14 +94,14 @@ Passageiro &Voo::findPassageiro(int ID) {
 }
 
 
-int Voo::numCarruagens(int pilha,int mala) const{
+int Voo::numCarruagens(ModelCar model) const{
     int p=0;
     for (int i=0;i<passageiros.size();i++){
         if (passageiros[i].isBagagem()==true){
             p+=1;
         }
     }
-    float m=pilha*mala;
+    float m=model.getMalas()*model.getPilhas();
     float c=ceil(p/m);
     return c;
 }
@@ -112,4 +113,19 @@ Voo::Voo(int numero, string partida, int duration, string origem, string destino
     this->destino=destino;
     this->duration=duration;
     this->capacity=capacity;
+}
+
+string Voo::ModelSelector() {
+    int c;
+    for(int i=0;i<passageiros.size();i++){
+        if (passageiros[i].isBagagem()==true){
+            c+=1;
+        }
+    }
+    if (c>=100){
+        return "X";
+    }
+    else{
+        return "Y";
+    }
 }

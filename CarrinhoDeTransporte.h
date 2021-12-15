@@ -8,16 +8,19 @@
 
 #include "Carruagem.h"
 #include "Bagagem.h"
+#include "ModelCar.h"
 #include <vector>
 using namespace std;
 
 class CarrinhoDeTransporte {
 public:
-    CarrinhoDeTransporte(int carruagens); //retirou-se pilhas e malas
+    CarrinhoDeTransporte(int carruagens, ModelCar model); //retirou-se pilhas e malas
     vector<Bagagem> getBagagem() const; //retorna num vetor todas as malas que estão no carrinho
     Bagagem& popBag(const Carruagem& carruagem); //retira a mala do topo de uma dada carruagem
     bool pushBag(const Bagagem& mala); //adiciona uma mala ao carrinho
     bool isFull() const; //verifica se o carrinho já está cheio
+
+
 
 private:
     int capacity; //número de carruagens do carrinho

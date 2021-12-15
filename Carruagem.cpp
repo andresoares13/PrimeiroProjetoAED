@@ -5,7 +5,12 @@
 #include "Carruagem.h"
 
 Carruagem::Carruagem(int pilhas, int malas) {
-
+    malasPorStack=malas;
+    for (int i=0;i<pilhas;i++){
+        stack<Bagagem> b;
+        carruagem.push_back(b);
+    }
+    capacity=pilhas;
 }
 
 bool Carruagem::isFull() const {

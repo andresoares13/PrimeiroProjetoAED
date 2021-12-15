@@ -7,6 +7,7 @@
 #include <string>
 #include <vector>
 #include "Passageiro.h"
+#include "ModelCar.h"
 #include <list>
 
 using namespace std;
@@ -27,7 +28,8 @@ public:
     bool addPassageiro(Passageiro &p); //adiciona passageiro se o nº de bilhetes que quer comprar for inferior ou igual aos lugares disponíveis
     bool removePassageiro(int ID); //caso o passageiro com esse ID exista, remove-o
     Passageiro& findPassageiro(int ID);
-    int numCarruagens(int pilha, int mala) const;
+    string ModelSelector(); //retorna o modelo de carruagem mais adequado em função dos passageiros com bagagem
+    int numCarruagens(ModelCar model) const; //retorna o numero de carrugens necessario em funçao do modelo e do numero de passageiros
 
 private:
     int numero;
