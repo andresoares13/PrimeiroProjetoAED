@@ -4,6 +4,7 @@
 
 #include <cmath>
 #include <stdexcept>
+#include <iostream>
 #include "Voo.h"
 
 
@@ -93,8 +94,14 @@ Passageiro &Voo::findPassageiro(int ID) {
 
 
 int Voo::numCarruagens(int pilha,int mala) const{
-    int p=passageiros.size();
-    int c=ceil(p/(pilha*mala));
+    int p=0;
+    for (int i=0;i<passageiros.size();i++){
+        if (passageiros[i].isBagagem()==true){
+            p+=1;
+        }
+    }
+    float m=pilha*mala;
+    float c=ceil(p/m);
     return c;
 }
 
