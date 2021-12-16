@@ -35,9 +35,6 @@ vector<Bagagem> Carruagem::getBagagemS() const {
     return res;
 }
 
-void Carruagem::popAllBags() const {
-
-}
 
 bool Carruagem::AddBag(Bagagem bag){
     for (int i=0;i<carruagem.size();i++){
@@ -69,11 +66,14 @@ bool Carruagem::isClear() const {
     return p;
 }
 
-/*
+
 string Carruagem::get() {
     for (int i=0;i<carruagem.size();i++){
         cout<<carruagem[i].size()<<endl;
     }
     return "";
 }
-*/
+
+
+
+

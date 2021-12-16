@@ -4,14 +4,26 @@
 
 #include "Aviao.h"
 
-Aviao::Aviao(string matricula, string tipo, int capacidade, vector<Voo> plano, queue<Service> servicesRealizar) {
+Aviao::Aviao(string matricula, string tipo,  vector<Voo> plano, queue<Service> servicesRealizar) {
     this->matricula=matricula;
     this->tipo=tipo;
-    this->capacity=capacidade;
     this->plano=plano;
     this->servicesRealizar=servicesRealizar;
     this->servicesRealizados={};
     this->state=false;
+    if (matricula.substr(0,1)=="A"){
+        LimitPerBag=40;
+        capacity=200;
+    }
+    if (matricula.substr(0,1)=="B"){
+        LimitPerBag=20;
+        capacity=100;
+    }
+    if (matricula.substr(0,1)=="S"){
+        LimitPerBag=60;
+        capacity=400;
+    }
+
 }
 
 string Aviao::getMatricula() const {
@@ -52,5 +64,9 @@ bool Aviao::isBroken() const {
 
 void Aviao::setBroken() {
     state=true;
+}
+
+int Aviao::getLimitPerBag() const {
+    return LimitPerBag;
 }
 

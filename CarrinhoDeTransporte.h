@@ -15,9 +15,8 @@ using namespace std;
 class CarrinhoDeTransporte {
 public:
     CarrinhoDeTransporte(int carruagens, ModelCar model); //retirou-se pilhas e malas
-    vector<Bagagem> getBagagem() const; //retorna num vetor todas as malas que estão no carrinho
+    vector<Carruagem> getBagagem() const;
     bool ClearCar(); //retira todas as malas
-    bool pushBag(const Bagagem& mala); //adiciona uma mala ao carrinho
     bool isFull() const; //verifica se o carrinho já está cheio
     void AddBagagem(Bagagem bag); //adiciona toda a bagagem
 

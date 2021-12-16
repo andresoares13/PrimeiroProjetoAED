@@ -16,3 +16,7 @@ int Bagagem::getID() const {
 int Bagagem::getPeso() const {
     return this->peso;
 }
+
+void Bagagem::setPeso(int peso) {
+    Bagagem::peso = peso;
+}

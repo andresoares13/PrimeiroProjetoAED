@@ -5,8 +5,9 @@
 #include <cmath>
 #include <stdexcept>
 #include <iostream>
+#include <ctime>
 #include "Voo.h"
-
+#include "CarrinhoDeTransporte.h"
 
 
 int Voo::getNumero() const {
@@ -47,7 +48,7 @@ int Voo::getTicketPrice() const {
 }
 
 int Voo::ticketsAvailable() const {
-    return capacity - passageiros.size();
+    return capacity-TicketsBought;
 }
 
 vector<Passageiro> Voo::getPassageiros() const {
@@ -55,16 +56,11 @@ vector<Passageiro> Voo::getPassageiros() const {
 }
 
 bool Voo::addPassageiro(Passageiro &p) {
-
-    if(ticketsAvailable() == 0)//verificar se está cheio
-    {
-        return false;
+    Bagagem b=p.GetBag();
+    if (b.getPeso()>BagWeight){
+        p.setCheckin(true);
     }
-    else
-    {
-        passageiros.push_back(p);
-        return true;
-    }
+    passageiros.push_back(p);
 }
 
 bool Voo::removePassageiro(int ID) {
@@ -97,7 +93,7 @@ Passageiro &Voo::findPassageiro(int ID) {
 int Voo::numCarruagens(ModelCar model) const{
     int p=0;
     for (int i=0;i<passageiros.size();i++){
-        if (passageiros[i].isBagagem()==true){
+        if (passageiros[i].isCheckin()==true){
             p+=1;
         }
     }
@@ -106,19 +102,21 @@ int Voo::numCarruagens(ModelCar model) const{
     return c;
 }
 
-Voo::Voo(int numero, string partida, int duration, string origem, string destino, int capacity) {
+Voo::Voo(int numero, string partida, int duration, string origem, string destino, int capacity, int BagWeight) {
     this->numero=numero;
     this->partida=partida;
     this->origem=origem;
     this->destino=destino;
     this->duration=duration;
     this->capacity=capacity;
+    TicketsBought=0;
+    this->BagWeight=BagWeight;
 }
 
 string Voo::ModelSelector() {
     int c;
     for(int i=0;i<passageiros.size();i++){
-        if (passageiros[i].isBagagem()==true){
+        if (passageiros[i].isCheckin()==true){
             c+=1;
         }
     }
@@ -127,5 +125,35 @@ string Voo::ModelSelector() {
     }
     else{
         return "Y";
+    }
+}
+
+
+CarrinhoDeTransporte  Voo::AutoBag() {
+    string x=ModelSelector();
+    int chariots= numCarruagens(x);
+    CarrinhoDeTransporte carrinho(chariots,x);
+    for (int i=0;i<passageiros.size();i++){
+        if (passageiros[i].isCheckin()){
+            carrinho.AddBagagem(passageiros[i].GetBag());
+        }
+    }
+    return carrinho;
+}
+
+void Voo::AddToBuy(Passageiro p) {
+    ToBuyTicket.push(p);
+}
+
+void Voo::BuyTickets() {
+    for (int i=0;i<ToBuyTicket.size();i++){
+        Passageiro p=ToBuyTicket.front();
+        if (p.getNumTickets()<=ticketsAvailable()){
+            TicketsBought+=p.getNumTickets();
+            if (p.isBagagem()==true){
+                NumBags+=1;
+            }
+        }
+        ToBuyTicket.pop();
     }
 }

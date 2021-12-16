@@ -11,6 +11,9 @@ public:
     Bagagem(int ID, int peso);
     int getID() const;
     int getPeso() const;
+
+    void setPeso(int peso);
+
 private:
     int ID;
     int peso;

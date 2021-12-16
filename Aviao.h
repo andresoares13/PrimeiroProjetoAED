@@ -16,10 +16,13 @@ using namespace std;
 
 class Aviao {
 public:
-    Aviao(string matricula, string tipo, int capacidade, vector<Voo> plano, queue<Service> servicesRealizar);
+    Aviao(string matricula, string tipo, vector<Voo> plano, queue<Service> servicesRealizar);
     string getMatricula() const;
     string getTipo() const;
     int getCapacidade() const;
+
+    int getLimitPerBag() const;
+
     vector<Voo> getPlano() const;
     queue<Service> getServicesRealizados() const;
     queue<Service> getServicesRealizar() const;
@@ -40,6 +43,7 @@ private:
     string matricula;
     string tipo;
     int capacity;
+    int LimitPerBag; //weight limit in kg
     vector<Voo> plano; //mudar para list
     queue<Service> servicesRealizados; //distinguir os serviços realizados dos a realizar
     queue<Service> servicesRealizar;
