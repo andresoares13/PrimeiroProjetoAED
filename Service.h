@@ -13,7 +13,7 @@ using namespace std;
 class Service {
 public:
     Service(string tipo, string data, string funcionario);
-    string getTipo() const; //porquê o const atrás
+    string getTipo() const;
     string getData() const;
     string getFuncionario() const;
     string setFuncionario() const;

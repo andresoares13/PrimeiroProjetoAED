@@ -10,26 +10,25 @@
 
 using namespace std;
 int main() {
-    Aeroporto A();
+    Aeroporto A;
     /*
-    Voo v(1,"p",2,"o","o",500);
-    Passageiro p(1,1,true);
-    for (int i=0;i<40;i++){
-        v.addPassageiro(p);
+    Voo v(1,"p",2,"o","o",500,20);
+    Passageiro p(1,1,true,true);
+    Passageiro p1(1,1,true,false);
+    Passageiro p2(1,1,true,false);
+    v.AddToBuy(p);
+    v.AddToBuy(p1);
+    v.AddToBuy(p2);
+    v.BuyTickets();
+    v.addPassageiro(p);
+    v.addPassageiro(p1);
+    v.addPassageiro(p2);
+    CarrinhoDeTransporte car=v.AutoBag();
+    cout<<car.getBagagem().size()<<endl;
+    for (int i=0;i<car.getBagagem().size();i++){
+        car.getBagagem()[i].get();
     }
-    string x=v.ModelSelector();
-    int chariots=v.numCarruagens(x);
-    CarrinhoDeTransporte carrinho(chariots,x);
-    Bagagem bag(1,1);
-    for (int i=0;i<v.getPassageiros().size();i++){
-        carrinho.AddBagagem(bag);
-    }
-    if (carrinho.ClearCar()){
-        cout<<"GreatSucess"<<endl;
-    }
-    */
-
-
+     */
     return 0;
 
 }
