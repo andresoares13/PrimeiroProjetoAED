@@ -14,11 +14,8 @@ CarrinhoDeTransporte::CarrinhoDeTransporte(int carruagens, ModelCar model){
     }
 }
 
-vector<Bagagem> CarrinhoDeTransporte::getBagagem() const {
-    vector<Bagagem> temp;
-    for(auto carruagem:carrinho)
-        temp.insert(temp.end(), carruagem.getBagagemS().begin(), carruagem.getBagagemS().end());
-    return temp;
+vector<Carruagem> CarrinhoDeTransporte::getBagagem() const {
+   return carrinho;
 }
 
 void CarrinhoDeTransporte::AddBagagem(Bagagem bag){

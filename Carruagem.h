@@ -20,7 +20,7 @@ public:
     bool AddBag(Bagagem bag); //adds the bag, returns false if the chariot is full
     void PopAllBags();
     bool isClear() const;
-    //string get();
+    string get();
 
 private:
     int malasPorStack; //número de malas por pilha
