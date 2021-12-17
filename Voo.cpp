@@ -146,7 +146,8 @@ void Voo::AddToBuy(Passageiro p) {
 }
 
 void Voo::BuyTickets() {
-    for (int i=0;i<ToBuyTicket.size();i++){
+    int size=ToBuyTicket.size();
+    for (int i=0;i<size;i++){
         Passageiro p=ToBuyTicket.front();
         if (p.getNumTickets()<=ticketsAvailable()){
             TicketsBought+=p.getNumTickets();
