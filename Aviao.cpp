@@ -2,9 +2,10 @@
 // Created by andre on 02-12-2021.
 //
 
+#include <algorithm>
 #include "Aviao.h"
 
-Aviao::Aviao(string matricula, string tipo,  vector<Voo> plano, queue<Service> servicesRealizar) {
+Aviao::Aviao(string matricula, string tipo,  list<Voo> plano, queue<Service> servicesRealizar) {
     this->matricula=matricula;
     this->tipo=tipo;
     this->plano=plano;
@@ -38,7 +39,7 @@ int Aviao::getCapacidade() const {
     return this->capacity;
 }
 
-vector<Voo> Aviao::getPlano() const {
+list<Voo> Aviao::getPlano() const {
     return this->plano;
 }
 
@@ -54,9 +55,6 @@ void Aviao::addVoo(const Voo& voo) {
     plano.push_back(voo);
 }
 
-void Aviao::addServices(const Service &service) {
-    servicesRealizar.push(service);
-}
 
 bool Aviao::isBroken() const {
     return state;
@@ -68,5 +66,20 @@ void Aviao::setBroken() {
 
 int Aviao::getLimitPerBag() const {
     return LimitPerBag;
+}
+
+void Aviao::AddToSort(const Service s) {
+    ServiceSorter.push_back(s);
+}
+
+void Aviao::SortAndPush() {
+    while(servicesRealizar.size()>0){
+        ServiceSorter.push_back(servicesRealizar.front());
+        servicesRealizar.pop();
+    }
+    sort(ServiceSorter.begin(),ServiceSorter.end());
+    for (int i=0;i<ServiceSorter.size();i++){
+        servicesRealizar.push(ServiceSorter[i]);
+    }
 }
 

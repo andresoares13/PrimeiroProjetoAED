@@ -16,26 +16,25 @@ using namespace std;
 
 class Aviao {
 public:
-    Aviao(string matricula, string tipo, vector<Voo> plano, queue<Service> servicesRealizar);
+    Aviao(string matricula, string tipo, list<Voo> plano, queue<Service> servicesRealizar);
     string getMatricula() const;
     string getTipo() const;
     int getCapacidade() const;
-
     int getLimitPerBag() const;
-
-    vector<Voo> getPlano() const;
+    list<Voo> getPlano() const;
     queue<Service> getServicesRealizados() const;
     queue<Service> getServicesRealizar() const;
     bool isBroken() const;
     void setBroken() ;
     void addVoo(const Voo& voo);
-    void addServices(const Service& service); //adiciona um serviço a realizar
+    void AddToSort(const Service s);
+    void SortAndPush();
     bool removeFuncionario(const string funcinario); //remove o funcionário e divide os serviços a realizar pelos restantes funcionários e apaga os serviços realizados
     void removeService(const string tipo, const string data);
-    vector<Voo> findVooOrigem(string origem);
-    vector<Voo> findVooDestino(string destino);
-    vector<Voo> findVooPartida(string partida);
-    vector<Passageiro> removeVoo(Voo &voo);
+    list<Voo> findVooOrigem(string origem);
+    list<Voo> findVooDestino(string destino);
+    list<Voo> findVooPartida(string partida);
+    list<Passageiro> removeVoo(Voo &voo);
 
 
 
@@ -44,10 +43,11 @@ private:
     string tipo;
     int capacity;
     int LimitPerBag; //weight limit in kg
-    vector<Voo> plano; //mudar para list
+    list<Voo> plano; //mudar para list
     queue<Service> servicesRealizados; //distinguir os serviços realizados dos a realizar
     queue<Service> servicesRealizar;
     bool state; //queremos que seja uma string?
+    vector<Service> ServiceSorter;
 };
 
 
