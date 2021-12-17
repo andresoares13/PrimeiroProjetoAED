@@ -27,14 +27,13 @@ public:
     bool isBroken() const;
     void setBroken() ;
     void addVoo(const Voo& voo);
-    void AddToSort(const Service s);
-    void SortAndPush();
+    void AddToSort(const Service s); //adiciona um serviço
+    void SortAndPush(); //ordena os servços por data (ais antigo primeiro) e coloca-os na queue
+    bool isService(); //ve o primeiro serviço da fila e se for no mesmo dia do primeiro elemento da lista de voos "faz o serviço" e coloca-os nos serviços realizados (correr antes de cada voo)
+    bool Fly(string data, string origem, string destino ); //realiza o voo do seu plano com estas caracteristicas
     bool removeFuncionario(const string funcinario); //remove o funcionário e divide os serviços a realizar pelos restantes funcionários e apaga os serviços realizados
-    void removeService(const string tipo, const string data);
-    list<Voo> findVooOrigem(string origem);
-    list<Voo> findVooDestino(string destino);
-    list<Voo> findVooPartida(string partida);
-    list<Passageiro> removeVoo(Voo &voo);
+
+
 
 
 

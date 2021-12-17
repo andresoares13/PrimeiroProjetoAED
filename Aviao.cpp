@@ -3,6 +3,7 @@
 //
 
 #include <algorithm>
+#include <iostream>
 #include "Aviao.h"
 
 Aviao::Aviao(string matricula, string tipo,  list<Voo> plano, queue<Service> servicesRealizar) {
@@ -12,15 +13,15 @@ Aviao::Aviao(string matricula, string tipo,  list<Voo> plano, queue<Service> ser
     this->servicesRealizar=servicesRealizar;
     this->servicesRealizados={};
     this->state=false;
-    if (matricula.substr(0,1)=="A"){
+    if (tipo.substr(0,1)=="A"){
         LimitPerBag=40;
         capacity=200;
     }
-    if (matricula.substr(0,1)=="B"){
+    if (tipo.substr(0,1)=="B"){
         LimitPerBag=20;
         capacity=100;
     }
-    if (matricula.substr(0,1)=="S"){
+    if (tipo.substr(0,1)=="S"){
         LimitPerBag=60;
         capacity=400;
     }
@@ -81,5 +82,54 @@ void Aviao::SortAndPush() {
     for (int i=0;i<ServiceSorter.size();i++){
         servicesRealizar.push(ServiceSorter[i]);
     }
+}
+
+bool Aviao::isService() {
+    bool SDone=false;
+    if (servicesRealizar.front().getData()==plano.begin()->getPartida()){
+        servicesRealizados.push(servicesRealizar.front());
+        servicesRealizar.pop();
+        SDone=true;
+    }
+    return SDone;
+}
+
+bool Aviao::Fly(string data, string origem, string destino) {
+    bool IFlew=false;
+    vector<Voo> NotRealizados;
+    list<Voo> :: iterator it=plano.begin();
+    list<Voo> :: iterator it2=plano.end();
+    while (it!=it2){
+        if((*it).getPartida()==data&&(*it).getOrigem()==origem&&(*it).getDestino()==destino){
+            CarrinhoDeTransporte car=(*it).AutoBag();
+            IFlew=true;
+        }
+        else{
+            NotRealizados.push_back(*it);
+        }
+        it++;
+    }
+    plano.clear();
+    plano.insert(plano.begin(), NotRealizados.begin(), NotRealizados.end());
+    return IFlew;
+}
+
+bool Aviao::removeFuncionario(const string funcinario) {
+    vector<Service> s1;
+    vector<Service> s2;
+    while(servicesRealizar.size()>0){
+        s1.push_back(servicesRealizar.front());
+        servicesRealizar.pop();
+    }
+    for (int i=0;i<s1.size();i++){
+        if(s1[i].getFuncionario()!=funcinario){
+            s2.push_back(s1[i]);
+        }
+        else{
+            //
+        }
+    }
+    std::sort(s2.begin(), s2.end());
+    return false;
 }
 
