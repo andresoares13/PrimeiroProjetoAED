@@ -15,6 +15,7 @@ public:
     LocalTransporte(string tipo, float distance, vector<float> horariosPartida, bool availability);
     string getTipo() const;
     float getDistance() const;
+    void setDistance(float distance);
     vector<float> getHorarios() const;
     bool isAvailable() const;
     void changeAvailability();

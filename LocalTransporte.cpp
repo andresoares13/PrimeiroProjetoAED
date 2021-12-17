@@ -39,5 +39,12 @@ void LocalTransporte::changeHorarios(vector<float> horarios) {
 }
 
 bool LocalTransporte::operator<(const LocalTransporte &l1) const {
+    if(distance==l1.getDistance()){
+        return tipo<l1.getTipo();
+    }
     return distance < l1.getDistance();
+}
+
+void LocalTransporte::setDistance(float distance) {
+    this->distance=distance;
 }

@@ -39,18 +39,51 @@ vector<LocalTransporte> Aeroporto::getLocais(string tipo, float distance) const 
         option=1;
     else if(tipo!=""  && distance==0)
         option=2;
-    else if(tipo!="" && distance!=0)
+    else if(tipo=="" && distance!=0)
         option=3;
+    else if(tipo!="" && distance!=0)
+        option=4;
     while(!it.isAtEnd()){
         if(option==1)
             res.push_back(it.retrieve());
         else if(option==2 && it.retrieve().getTipo()==tipo)
             res.push_back(it.retrieve());
-        else if(option==3 && it.retrieve().getTipo()==tipo && it.retrieve().getDistance()<=distance)
+        else if(option==3 && it.retrieve().getDistance()<=distance)
+            res.push_back(it.retrieve());
+        else if(option==4 && it.retrieve().getTipo()==tipo && it.retrieve().getDistance()<=distance)
             res.push_back(it.retrieve());
         it.advance();
     }
     return res;
+}
+
+bool Aeroporto::updateLocal(float distance, string tipo, bool availability, vector<float> horariosPartida) {
+    BSTItrIn<LocalTransporte> it(locais);
+    while(!it.isAtEnd()){
+        if(it.retrieve().getTipo()==tipo && it.retrieve().getDistance()==distance){
+            locais.remove(it.retrieve());
+            addLocal(LocalTransporte(tipo, distance, horariosPartida, availability));
+            return true;
+        }
+        it.advance();
+    }
+    addLocal(LocalTransporte(tipo, distance, horariosPartida, availability));
+    return false;
+}
+
+vector<float> Aeroporto::consultLocais(string tipo, float distance, LocalTransporte& previous, LocalTransporte& next) const {
+    vector<float> res;
+    BSTItrIn<LocalTransporte> it(locais);
+    previous=it.retrieve();
+    while(!it.isAtEnd()){
+        if(it.retrieve().getDistance()<=distance && it.retrieve().getTipo()==tipo)
+            return it.retrieve().getHorarios();
+        it.advance();
+        if(distance<it.retrieve().getDistance() && it.retrieve().getTipo()==tipo){
+            next=it.retrieve();
+            return res;
+        }
+    }
 }
 
 
