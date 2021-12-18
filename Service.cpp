@@ -7,7 +7,13 @@
 Service::Service(string tipo, string data, string funcionario) {
     this->data=data;
     this->funcionario=funcionario;
-    this->tipo=tipo;
+    if (tipo=="m"){
+        this->tipo="manutenção";
+    }
+    if (tipo=="l"){
+        this->tipo="limpeza";
+    }
+
 }
 
 string Service::getData() const {

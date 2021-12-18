@@ -17,9 +17,6 @@ class LocalTransporte;
 class Aeroporto {
 public:
     Aeroporto();
-    vector<Aviao> getPlanes() const;
-
-    //Bárbara
     void addLocal(const LocalTransporte& local);
     void printLocais() const; //faz print de todos os locais próximos do aeroporto;
     vector<LocalTransporte> getLocais(string tipo="", float distance=0) const; //retorna todos os locais próximos ao aeroporto conforme o critério escolhido pelo passageiro
@@ -29,6 +26,13 @@ public:
     //Dos transportes que se encontram no máximo àquela distancia, retorna o horário do primeiro transporte do tipo dado caso exista
     //Caso não exista nenhum transporte desse tipo àquela distância, coloca em previous o transporte mais próximo do aeroporto
     //e coloca em next o próximo tansporte desse tipo e retorna um vetor vazio
+    void addPlane(Aviao plane);
+    vector<Aviao> GetPlanes();
+    int getnumFLights();
+    int getnumServices();
+
+
+
 
 
 private:

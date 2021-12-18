@@ -1,0 +1,5 @@
+metro 1.2 true
+comboio 0.8 true
+autocarro 1.0 true
+metro 0.7 true
+metro 1.0 false

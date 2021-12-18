@@ -32,7 +32,7 @@ public:
     bool isService(); //ve o primeiro serviço da fila e se for no mesmo dia do primeiro elemento da lista de voos "faz o serviço" e coloca-os nos serviços realizados (correr antes de cada voo)
     bool Fly(string data, string origem, string destino ); //realiza o voo do seu plano com estas caracteristicas
     bool removeFuncionario(const string funcinario); //remove o funcionário e divide os serviços a realizar pelos restantes funcionários e apaga os serviços realizados
-
+    vector<Voo> getPlanoVector();
 
 
 

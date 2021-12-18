@@ -7,45 +7,36 @@
 #include "Voo.h"
 #include "CarrinhoDeTransporte.h"
 #include "Aeroporto.h"
+#include "AirportMaker.h"
+#include "App.h"
+
 
 using namespace std;
 int main() {
-    Aeroporto A;
-
-    vector<float> v1={9.10, 9.45, 9.50};
-    vector<float> v2={10.20, 11.40};
-    vector<float> v3={13.45};
-    LocalTransporte l1("metro", 1.2, v1, true);
-    LocalTransporte l2("comboio", 0.8, v2, true);
-    LocalTransporte l3("autocarro", 1.0, v3, false);
-    A.addLocal(l1);
-    A.addLocal(l2);
-    A.addLocal(l3);
-    A.printLocais();
-    vector<LocalTransporte> r1=A.getLocais();
-    vector<LocalTransporte> r2=A.getLocais("metro");
-
-/*
-    Voo v(1,"p",2,"o","o",500,20);
-    Passageiro p(1,1,true,true);
-    Passageiro p1(1,1,true,false);
-    Passageiro p2(1,1,true,false);
-    v.AddToBuy(p);
-    v.AddToBuy(p1);
-    v.AddToBuy(p2);
-    v.BuyTickets();
-    v.addPassageiro(p);
-    v.addPassageiro(p1);
-    v.addPassageiro(p2);
-    CarrinhoDeTransporte car=v.AutoBag();
-    cout<<car.getBagagem().size()<<endl;
-    for (int i=0;i<car.getBagagem().size();i++){
-        car.getBagagem()[i].get();
-    }
-     */
+    AirportMaker createPort;
+    createPort.FillAirport();
+    Aeroporto aeroporto=createPort.GetAeroporto();
+    App app(aeroporto);
+    return(app.run());
 
 
 
-    return 0;
+
+
+
+
+
+
+
+
+
+    //cout<<aeroporto.GetPlanes()[0].getPlano().begin()->getDestino()<<endl;
+    //cout<<aeroporto.GetPlanes()[0].getServicesRealizar().front().getData();
+   // aeroporto.printLocais();
+   //list<Voo> ::iterator it=aeroporto.GetPlanes()[i].getPlano().begin();
+    //                    while(it!=aeroporto.GetPlanes()[i].getPlano().end()){
+    //                        cout<<"     - Date: "<<(*it).getPartida()<<" Origin: "<<(*it).getOrigem()<<" Destination: "<<(*it).getDestino()<<" Duration: "<<(*it).getDuration()<<endl;
+    //                        it++;
+    //                    }
 
 }

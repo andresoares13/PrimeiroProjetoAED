@@ -19,11 +19,11 @@ Aviao::Aviao(string matricula, string tipo,  list<Voo> plano, queue<Service> ser
     }
     if (tipo.substr(0,1)=="B"){
         LimitPerBag=20;
-        capacity=100;
+        capacity=200;
     }
     if (tipo.substr(0,1)=="S"){
         LimitPerBag=60;
-        capacity=400;
+        capacity=200;
     }
 
 }
@@ -131,5 +131,11 @@ bool Aviao::removeFuncionario(const string funcinario) {
     }
     std::sort(s2.begin(), s2.end());
     return false;
+}
+
+vector<Voo> Aviao::getPlanoVector() {
+    vector<Voo> voos;
+    voos.insert(voos.end(),plano.begin(),plano.end());
+    return voos;
 }
 

@@ -86,4 +86,28 @@ vector<float> Aeroporto::consultLocais(string tipo, float distance, LocalTranspo
     }
 }
 
+void Aeroporto::addPlane(Aviao plane) {
+    planes.push_back(plane);
+}
+
+vector<Aviao> Aeroporto::GetPlanes() {
+    return planes;
+}
+
+int Aeroporto::getnumFLights() {
+    int counter=0;
+    for (int i=0;i<planes.size();i++){
+        counter+=planes[i].getPlano().size();
+    }
+    return counter;
+}
+
+int Aeroporto::getnumServices() {
+    int counter=0;
+    for (int i=0;i<planes.size();i++){
+        counter+=planes[i].getServicesRealizar().size();
+    }
+    return counter;
+}
+
 
