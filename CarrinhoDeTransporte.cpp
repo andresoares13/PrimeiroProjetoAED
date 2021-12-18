@@ -1,10 +1,5 @@
-//
-// Created by andre on 02-12-2021.
-//
-
 #include <iostream>
 #include "CarrinhoDeTransporte.h"
-
 
 CarrinhoDeTransporte::CarrinhoDeTransporte(int carruagens, ModelCar model){
     this-> capacity = carruagens;

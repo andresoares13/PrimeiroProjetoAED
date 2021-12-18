@@ -1,7 +1,3 @@
-//
-// Created by andre on 15-12-2021.
-//
-
 #ifndef _BST_H_
 #define _BST_H_
 

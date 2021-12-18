@@ -1,7 +1,3 @@
-//
-// Created by andre on 15-12-2021.
-//
-
 #ifndef UNTITLED1_MODELCAR_H
 #define UNTITLED1_MODELCAR_H
 

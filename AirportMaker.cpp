@@ -1,7 +1,3 @@
-//
-// Created by andre on 18-12-2021.
-//
-
 #include "AirportMaker.h"
 /**
  * Creates an aeroport object and sets the airport of the object to it
@@ -84,7 +80,6 @@ list<Voo> AirportMaker::VoosMaker(int capacidade, int BagLimit) {
         voos.push_back(v);
     }
     return voos;
-
 }
 
 queue<Service> AirportMaker::ServicesMaker() {
@@ -199,11 +194,6 @@ vector<float> AirportMaker::GetHorarios(string tipo) {
         else{
             horarios.clear();
         }
-
     }
-
     return horarios;
 }
-
-
-

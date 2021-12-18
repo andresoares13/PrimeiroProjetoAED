@@ -1,10 +1,5 @@
-//
-// Created by andre on 18-12-2021.
-//
-
 #ifndef UNTITLED1_APP_H
 #define UNTITLED1_APP_H
-
 
 #include "Aeroporto.h"
 #include <stdexcept>
@@ -16,6 +11,5 @@ public:
 private:
     Aeroporto aeroporto;
 };
-
 
 #endif //UNTITLED1_APP_H

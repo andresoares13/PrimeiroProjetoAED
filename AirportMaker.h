@@ -1,7 +1,3 @@
-//
-// Created by andre on 18-12-2021.
-//
-
 #ifndef UNTITLED1_AIRPORTMAKER_H
 #define UNTITLED1_AIRPORTMAKER_H
 
@@ -23,6 +19,5 @@ public:
 private:
     Aeroporto airport;
 };
-
 
 #endif //UNTITLED1_AIRPORTMAKER_H

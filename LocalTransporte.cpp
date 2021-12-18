@@ -1,14 +1,17 @@
-//
-// Created by andre on 02-12-2021.
-//
-
 #include "LocalTransporte.h"
+#include <stdexcept>
+#include <iostream>
+using namespace std;
 
 LocalTransporte::LocalTransporte(string tipo, float distance, vector<float> horariosPartida, bool availability) {
-    this->tipo=tipo;
-    this->distance=distance;
-    this->horariosPartida=horariosPartida;
-    this->availability=availability;
+    if(tipo=="metro" || tipo=="autocarro" || tipo=="comboio") {
+        this->tipo = tipo;
+        this->distance = distance;
+        this->horariosPartida = horariosPartida;
+        this->availability = availability;
+    }
+    else if(tipo!="")
+        throw invalid_argument("Transport invalid");
 }
 
 string LocalTransporte::getTipo() const {

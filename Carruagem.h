@@ -1,7 +1,3 @@
-//
-// Created by up202004161 on 03/12/2021.
-//
-
 #ifndef UNTITLED1_CARRUAGEM_H
 #define UNTITLED1_CARRUAGEM_H
 #include <stack>

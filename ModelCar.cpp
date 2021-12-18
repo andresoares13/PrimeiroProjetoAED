@@ -1,7 +1,3 @@
-//
-// Created by andre on 15-12-2021.
-//
-
 #include <stdexcept>
 #include "ModelCar.h"
 

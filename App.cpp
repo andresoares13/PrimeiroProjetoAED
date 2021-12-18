@@ -1,7 +1,3 @@
-//
-// Created by andre on 18-12-2021.
-//
-
 #include "App.h"
 
 App::App(Aeroporto aeroporto) {

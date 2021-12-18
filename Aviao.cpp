@@ -1,7 +1,3 @@
-//
-// Created by andre on 02-12-2021.
-//
-
 #include <algorithm>
 #include <iostream>
 #include "Aviao.h"
@@ -55,7 +51,6 @@ queue<Service> Aviao::getServicesRealizar() const {
 void Aviao::addVoo(const Voo& voo) {
     plano.push_back(voo);
 }
-
 
 bool Aviao::isBroken() const {
     return state;
