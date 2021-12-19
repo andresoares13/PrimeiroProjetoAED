@@ -32,3 +32,14 @@ bool Service::operator<(Service &servico) {
 string Service::getFuncionario() const {
     return this->funcionario;
 }
+
+string Service::getTypeENG() const {
+    string s;
+    if (tipo=="manutenção"){
+        s="maintenance";
+    }
+    else{
+        s="cleaning";
+    }
+    return s;
+}

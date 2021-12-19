@@ -12,7 +12,6 @@ public:
     CarrinhoDeTransporte(int carruagens, ModelCar model); //retirou-se pilhas e malas
     vector<Carruagem> getBagagem() const;
     bool ClearCar(); //retira todas as malas
-    bool isFull() const; //verifica se o carrinho já está cheio
     void AddBagagem(Bagagem bag); //adiciona toda a bagagem
 
 private:

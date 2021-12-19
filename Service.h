@@ -9,12 +9,10 @@ using namespace std;
 class Service {
 public:
     Service(string tipo, string data, string funcionario);
-    string getTipo() const;
     string getData() const;
     string getFuncionario() const;
-    string setFuncionario() const;
-    bool changeData(string date);  //muda a data do serviço para date se essa data for antes do próximo voo
     bool operator < (Service &servico);
+    string getTypeENG() const;
 
 private:
     string tipo; //manutenção/limpeza

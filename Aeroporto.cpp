@@ -110,11 +110,11 @@ vector<float> Aeroporto::consultLocais(string tipo, float distance, LocalTranspo
     if(it.retrieve().getDistance()<distance)
         previous = it.retrieve();
     else
-        cout << "Nao existe nenhum transporte a uma distancia maxima de " << distance <<" km"<< endl;
+        cout << "There is no transportation method at a maximum distance of " << distance <<" km"<< endl;
 
     //VERIFICA SE EXISTE ALGUM TRANSPORTE DO TIPO DADO
     if(getLocais(tipo).empty()){
-        cout<<"Sem transportes do tipo " << tipo;
+        cout<<"There is no " << tipo;
         return res;
     }
 
@@ -126,13 +126,36 @@ vector<float> Aeroporto::consultLocais(string tipo, float distance, LocalTranspo
         it.advance();
         if(distance<it.retrieve().getDistance() && it.retrieve().getTipo()==tipo){
             next=it.retrieve();
-            cout<<"Nao existe nenhum "<<tipo<<" a uma distancia maxima de " << distance<<" km"<<endl;
+            cout<<"There is no "<<tipo<<" at a maximum distance of " << distance<<" km"<<endl;
             break;
         }
     }
     if(res.empty() && previous.getTipo()!="")
-        cout << endl << "Transporte mais proximo: " << previous.getTipo() << " " << previous.getDistance()<<"km" << endl;
+        cout << endl << "Closest transport: " << previous.getTipo() << " " << previous.getDistance()<<"km" << endl;
     if(res.empty() && next.getTipo()!="")
-        cout << next.getTipo()<< " mais proximo: "<< next.getDistance() << "km" << endl;
+        cout << " closest "<< next.getTipo()<<": "<< next.getDistance() << "km" << endl;
     return res;
+}
+
+void Aeroporto::setPlane(int i,Aviao plane) {
+    planes[i-1]=plane;
+    for (int j=0;j<planes.size();j++){
+        list<Voo> lv=planes[j].getPlano();
+        queue<Service> s=planes[j].getServicesRealizar();
+        queue<Service> s2=planes[j].getServicesRealizados();
+        if (j==i-1){
+
+        }
+        else{
+            while(lv.size()>plane.getPlano().size()){
+                lv.pop_front();
+            }
+        }
+        while(s.size()>plane.getPlano().size()){
+            s2.push(s.front());
+            s.pop();
+        }
+        planes[j].setPlano(lv);
+        planes[j].setServices(s,s2);
+    }
 }

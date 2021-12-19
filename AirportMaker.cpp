@@ -22,7 +22,7 @@ void AirportMaker::FillAirport() {
 vector<Aviao> AirportMaker::PlaneMaker() {
     vector<Aviao> planes;
     string PlaneLine;
-    fstream file;
+    ifstream file;
     file.open("plane.txt");
     if (!(file.is_open())){
         throw invalid_argument("File not found");
@@ -57,7 +57,7 @@ vector<Aviao> AirportMaker::PlaneMaker() {
 list<Voo> AirportMaker::VoosMaker(int capacidade, int BagLimit) {
     list<Voo> voos;
     string VooLine;
-    fstream file;
+    ifstream file;
     file.open("Voo.txt");
     if (!(file.is_open())){
         throw invalid_argument("File not found");
@@ -85,7 +85,7 @@ list<Voo> AirportMaker::VoosMaker(int capacidade, int BagLimit) {
 queue<Service> AirportMaker::ServicesMaker() {
     queue<Service> services;
     string ServiceLine;
-    fstream file;
+    ifstream file;
     file.open("service.txt");
     if (!(file.is_open())){
         throw invalid_argument("File not found");
@@ -105,7 +105,7 @@ vector<LocalTransporte> AirportMaker::LocaisAdder() {
     vector<LocalTransporte> locais;
     string TransporteLine;
     bool availability;
-    fstream file;
+    ifstream file;
     file.open("transportes.txt");
     if (!(file.is_open())){
         throw invalid_argument("File not found");
@@ -157,7 +157,7 @@ vector<float> AirportMaker::GetHorarios(string tipo) {
     int itcounter=0;
     vector<float> horarios;
     string hLine;
-    fstream file;
+    ifstream file;
     file.open("horarios.txt");
     if (!(file.is_open())){
         throw invalid_argument("File not found");

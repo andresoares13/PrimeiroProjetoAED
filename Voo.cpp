@@ -51,10 +51,12 @@ vector<Passageiro> Voo::getPassageiros() const {
     return passageiros;
 }
 
-bool Voo::addPassageiro(Passageiro &p) {
-    Bagagem b=p.GetBag();
-    if (b.getPeso()>BagWeight){
-        p.setCheckin(true);
+void Voo::addPassageiro(Passageiro &p) {
+    if (p.isBagagem()==true){
+        Bagagem b=p.GetBag();
+        if (b.getPeso()>BagWeight){
+            p.setCheckin(true);
+        }
     }
     passageiros.push_back(p);
 }
@@ -153,4 +155,44 @@ void Voo::BuyTickets() {
         }
         ToBuyTicket.pop();
     }
+}
+
+void Voo::AddRandomP(int type) {
+    int n;
+    srand (time(NULL));
+    if (type=400){
+         n=rand() % 350 + 200;
+    }
+    if (type=200){
+        n=rand() % 140 + 100;
+    }
+    if (type=100){
+        n=rand() % 70 + 30;
+    }
+    for (int i=0;i<n;i++){
+        Passageiro p(i+1,1, true, true);
+        AddToBuy(p);
+        addPassageiro(p);
+    }
+}
+
+int Voo::getQueueSize() {
+    return ToBuyTicket.size();
+}
+
+bool Voo::operator<(Voo &v) {
+    if (partida.substr(6,4)==v.getPartida().substr(6,4)){
+        if(partida.substr(3,2)==v.getPartida().substr(3,2)){
+            if(partida.substr(0,2)==v.getPartida().substr(0,2)){
+                return numero<v.getNumero();
+            }
+            return partida.substr(0,2)<v.getPartida().substr(0,2);
+        }
+        return partida.substr(3,2)<v.getPartida().substr(3,2);
+    }
+    return partida.substr(6,4)<v.getPartida().substr(6,4);
+}
+
+int Voo::getBagWeight() const {
+    return BagWeight;
 }

@@ -70,6 +70,10 @@ string Carruagem::get() {
     return "";
 }
 
+int Carruagem::getCapacity() const {
+    return capacity;
+}
+
 
 
 

@@ -24,7 +24,7 @@ public:
     int getTicketPrice() const;
     int ticketsAvailable() const;
     vector<Passageiro> getPassageiros() const;
-    bool addPassageiro(Passageiro &p); //adiciona passageiro se o nº de bilhetes que quer comprar for inferior ou igual aos lugares disponíveis
+    void addPassageiro(Passageiro &p); //adiciona passageiro se o nº de bilhetes que quer comprar for inferior ou igual aos lugares disponíveis
     bool removePassageiro(int ID); //caso o passageiro com esse ID exista, remove-o
     Passageiro& findPassageiro(int ID);
     string ModelSelector(); //retorna o modelo de carruagem mais adequado em função dos passageiros com bagagem
@@ -32,6 +32,13 @@ public:
     CarrinhoDeTransporte AutoBag(); // chooses the model, creates the car with the correct number of chariots, adds the baggs to the car and returns it
     void AddToBuy (Passageiro p); //Adds a potential passenger to the queue to buy a ticket
     void BuyTickets(); //goes through the queue of potential passengers and if there is space and if their luggage can go to the plane, they buy the tickets. also adds the passengers to the vector
+    void AddRandomP(int type); //adds a random amount of passengers to the queue
+    int getQueueSize();
+
+    int getBagWeight() const;
+
+    bool operator <(Voo& v);
+
 private:
     int numero;
     string partida; //data de partida
