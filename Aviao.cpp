@@ -97,6 +97,7 @@ bool Aviao::Fly(string data, string origem, string destino, bool checkin) {
     list<Voo> :: iterator it2=plano.end();
     while (it!=it2){
         if((*it).getPartida()==data&&(*it).getOrigem()==origem&&(*it).getDestino()==destino){
+            planoDone.push_back((*it));
             v=(*it);
             CarrinhoDeTransporte car=(*it).AutoBag();
             string x;
@@ -170,6 +171,14 @@ bool Aviao::printVoo(string destination) {
         it++;
     }
     return value;
+}
+
+void Aviao::addplanoDone(Voo v) {
+    planoDone.push_back(v);
+}
+
+vector<Voo> Aviao::getDoneFlights() {
+    return planoDone;
 }
 
 

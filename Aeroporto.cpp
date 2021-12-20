@@ -2,6 +2,7 @@
 #include "BinarySearchTree.h"
 #include <iomanip>
 #include <cmath>
+#include <algorithm>
 
 Aeroporto::Aeroporto(): locais(LocalTransporte("", 0, {}, true)){}
 
@@ -148,6 +149,7 @@ void Aeroporto::setPlane(int i,Aviao plane) {
         }
         else{
             while(lv.size()>plane.getPlano().size()){
+                planes[j].addplanoDone(lv.front());
                 lv.pop_front();
             }
         }
@@ -157,5 +159,44 @@ void Aeroporto::setPlane(int i,Aviao plane) {
         }
         planes[j].setPlano(lv);
         planes[j].setServices(s,s2);
+    }
+}
+
+void Aeroporto::servicePrinter() {
+    vector<Service> done;
+    vector<Service> undone;
+    for (int i=0;i<planes.size();i++){
+        queue<Service> qs =planes[i].getServicesRealizar();
+        queue<Service> qs2=planes[i].getServicesRealizados();
+        while (qs.size()>0){
+            undone.push_back(qs.front());
+            qs.pop();
+        }
+        while (qs2.size()>0){
+            done.push_back(qs2.front());
+            qs2.pop();
+        }
+
+    }
+    cout<<"Services done: "<<endl<<endl;
+    for(int i=0;i<done.size();i++){
+        cout<<"      type: "<<done[i].getTypeENG()<<" Worker: "<<done[i].getFuncionario()<<" Date: "<<done[i].getData()<<endl<<endl;
+    }
+    cout<<"Services undone: "<<endl<<endl;
+    for(int i=0;i<undone.size();i++){
+        cout<<"      type: "<<undone[i].getTypeENG()<<" Worker: "<<undone[i].getFuncionario()<<" Date: "<<undone[i].getData()<<endl<<endl;
+    }
+}
+
+void Aeroporto::DoneFlightsPrinter() {
+    vector<Voo> temp;
+    for (int i=0;i<planes.size();i++){
+        for (int j=0;j<planes[i].getDoneFlights().size();j++){
+            temp.push_back(planes[i].getDoneFlights()[j]);
+        }
+    }
+    sort(temp.begin(),temp.end());
+    for (int i=0;i<temp.size();i++){
+        cout<<"     - Date: "<<temp[i].getPartida()<<" Origin: "<<temp[i].getOrigem()<<" Destination: "<<temp[i].getDestino()<<" Duration: "<<temp[i].getDuration()<<endl;
     }
 }

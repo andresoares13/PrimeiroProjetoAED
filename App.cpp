@@ -9,13 +9,17 @@ int App::run() {
     int option;
     int counter;
     while (true){
-        cout<<"What would you like to do next?"<<endl<<endl<<"1 See list of flights (by plane)"<<endl<<"2 See flight by destination"<<endl<<"3 Fly"<<endl<<"4 See every transportation method"<<endl<<"5 See the transportation method that you want"<<endl<<"6 Exit"<<endl;
+        cout<<"What would you like to do next?"<<endl<<endl<<"1 See full list of flights"<<endl<<"2 See flight by destination"<<endl<<"3 See completed flights"<<endl<<"4 Fly"<<endl<<"5 See every transportation method"<<endl<<"6 See the transportation method that you want"<<endl<<"7 See the cleaning/maintenance services that have been done and are still yet to be done"<<endl<<"8 Exit"<<endl;
         cin>>option;
         if (cin.fail()){
             throw invalid_argument("Please choose a valid number");
         }
         switch(option){
             case 1:
+                if (aeroporto.GetPlanes()[0].getPlano().size()==0){
+                    cout<<"There are no flights in this airport"<<endl<<endl;
+                    break;
+                }
                 for (int i=0;i<aeroporto.GetPlanes().size();i++){
                     cout<<"Plane "<<i+1 <<" License Plate: "<<aeroporto.GetPlanes()[i].getMatricula()<<" Type: "<<aeroporto.GetPlanes()[i].getTipo()<<endl<<endl;
                     for (int j=0;j<aeroporto.GetPlanes()[i].getPlanoVector().size();j++){
@@ -25,7 +29,7 @@ int App::run() {
                     cout<<endl;
                 }
                 continue;
-            case 3:
+            case 4:
             {
                 if (aeroporto.getnumFLights()==0){
                     cout<<"There are no flights available, sorry"<<endl<<endl;
@@ -170,10 +174,10 @@ int App::run() {
                 counter+=flight;
             }
                 continue;
-            case 4:
+            case 5:
                 aeroporto.printLocais();
                 continue;
-            case 5:
+            case 6:
             {
                 LocalTransporte previous("", 0, {}, true), next("",0,{},true);
                 string tipo;
@@ -203,7 +207,7 @@ int App::run() {
             }
                 cout<<endl;
                 continue;
-            case 6:
+            case 8:
                 return 0;
             case 2:
             {
@@ -223,6 +227,15 @@ int App::run() {
             }
                 cout<<endl;
                 continue;
+            case 7:
+                aeroporto.servicePrinter();
+                continue;
+            case 3:
+                if (aeroporto.GetPlanes()[0].getDoneFlights().size()==0){
+                    cout<<"There have been no completed flights so far"<<endl<<endl;
+                    break;
+                }
+                aeroporto.DoneFlightsPrinter();
             default:
                 continue;
         }

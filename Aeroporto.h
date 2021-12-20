@@ -24,6 +24,8 @@ public:
     vector<LocalTransporte> getLocais(float distance);
     bool updateLocal(string tipo, float distance, vector<float> horariosPartida, bool availability); //se o transporte daquele tipo àquela distância existir, altera a availability e horário
     vector<float> consultLocais(string tipo, float distance, LocalTransporte& previous, LocalTransporte& next) const;
+    void servicePrinter();
+    void DoneFlightsPrinter();
 private:
     vector<Aviao> planes;
     BST<LocalTransporte> locais; //ordenados segundo a distância ao aeroporto

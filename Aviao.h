@@ -32,17 +32,20 @@ public:
     void setServices(queue<Service> sv, queue<Service> sv2);
     void setVoo(Voo v);
     bool printVoo(string destination);
+    void addplanoDone(Voo v);
+    vector<Voo> getDoneFlights();
 
 private:
     string matricula;
     string tipo;
     int capacity;
     int LimitPerBag; //weight limit in kg
-    list<Voo> plano; //mudar para list
+    list<Voo> plano;
     queue<Service> servicesRealizados; //distinguir os serviços realizados dos a realizar
     queue<Service> servicesRealizar;
     bool state; //queremos que seja uma string?
     vector<Service> ServiceSorter;
+    vector<Voo> planoDone;
 };
 
 
