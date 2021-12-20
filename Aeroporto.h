@@ -17,7 +17,6 @@ public:
     vector<Aviao> GetPlanes();
     void setPlane(int i,Aviao plane);
     int getnumFLights();
-    int getnumServices();
     void addLocal(const LocalTransporte& local);
     void printLocais() const; //faz print de todos os locais próximos do aeroporto;
     vector<LocalTransporte> getLocais(string tipo="", float distance=0) const; //retorna todos os locais próximos ao aeroporto conforme o critério escolhido pelo passageiro

@@ -43,7 +43,13 @@ vector<Aviao> AirportMaker::PlaneMaker() {
         }
         list<Voo> voos=VoosMaker(capacidade,Baglimit);
         queue<Service> services=ServicesMaker();
+        vector<Voo> Done=DoneVooMaker();
         Aviao A(PlaneLine.substr(0,8),PlaneLine.substr(9,4), voos,services);
+        for (int i=0;i<Done.size();i++){
+            A.addplanoDone(Done[i]);
+        }
+        queue<Service> s2=DoneServiceMaker();
+        A.setServices(services,s2);
         planes.push_back(A);
     }
     return planes;
@@ -57,6 +63,7 @@ vector<Aviao> AirportMaker::PlaneMaker() {
 list<Voo> AirportMaker::VoosMaker(int capacidade, int BagLimit) {
     list<Voo> voos;
     string VooLine;
+    int Nodupe=0;
     ifstream file;
     file.open("Voo.txt");
     if (!(file.is_open())){
@@ -67,6 +74,10 @@ list<Voo> AirportMaker::VoosMaker(int capacidade, int BagLimit) {
         int x,y,p;
         stringstream n1(n), d1(d);
         n1>>x;
+        if (x==Nodupe){
+            continue;
+        }
+        Nodupe=x;
         d1>>y;
         os=VooLine.substr(17,VooLine.length());
         for (int i=0;i<os.size();i++){
@@ -196,4 +207,52 @@ vector<float> AirportMaker::GetHorarios(string tipo) {
         }
     }
     return horarios;
+}
+
+vector<Voo> AirportMaker::DoneVooMaker() {
+    vector<Voo> voos;
+    string VooLine;
+    int Nodupe=0;
+    ifstream file;
+    file.open("VooDone.txt");
+    if (!(file.is_open())){
+        throw invalid_argument("File not found");
+    }
+    while(getline(file,VooLine)){
+        string n=VooLine.substr(0,2),d=VooLine.substr(14,2),o,s,os;
+        int x,y,p;
+        stringstream n1(n), d1(d);
+        n1>>x;
+        if (x==Nodupe){
+            continue;
+        }
+        Nodupe=x;
+        d1>>y;
+        os=VooLine.substr(17,VooLine.length());
+        for (int i=0;i<os.size();i++){
+            if (os.substr(i,1)==" "){
+                p=i;
+            }
+        }
+        o=os.substr(0,p);
+        s=os.substr(p+1,os.length());
+        Voo v(x,VooLine.substr(3,10),y,o,s,100,100);
+        voos.push_back(v);
+    }
+    return voos;
+}
+
+queue<Service> AirportMaker::DoneServiceMaker() {
+    queue<Service> services;
+    string ServiceLine;
+    ifstream file;
+    file.open("ServiceDone.txt");
+    if (!(file.is_open())){
+        throw invalid_argument("File not found");
+    }
+    while(getline(file,ServiceLine)){
+        Service s(ServiceLine.substr(0,1),ServiceLine.substr(2,10),ServiceLine.substr(13,ServiceLine.length()));
+        services.push(s);
+    }
+    return services;
 }

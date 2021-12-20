@@ -91,13 +91,16 @@ bool Aviao::isService() {
 
 bool Aviao::Fly(string data, string origem, string destino, bool checkin) {
     bool IFlew=false;
+    bool Done=false;
     vector<Voo> NotRealizados;
     Voo v=plano.front();
     list<Voo> :: iterator it=plano.begin();
     list<Voo> :: iterator it2=plano.end();
     while (it!=it2){
-        if((*it).getPartida()==data&&(*it).getOrigem()==origem&&(*it).getDestino()==destino){
+        if (Done== false){
             planoDone.push_back((*it));
+        }
+        if((*it).getPartida()==data&&(*it).getOrigem()==origem&&(*it).getDestino()==destino){
             v=(*it);
             CarrinhoDeTransporte car=(*it).AutoBag();
             string x;
@@ -115,6 +118,7 @@ bool Aviao::Fly(string data, string origem, string destino, bool checkin) {
             }
             cout<<"The flight has begun"<<endl<<endl;
             IFlew=true;
+            Done= true;
         }
         else{
             NotRealizados.push_back(*it);
@@ -166,7 +170,7 @@ bool Aviao::printVoo(string destination) {
     while (it!=it2){
         if ((*it).getDestino()==destination){
             value=true;
-            cout<<"Id: "<<(*it).getNumero()<<" Date: "<<(*it).getPartida()<<" Origin: "<<(*it).getOrigem()<<" Destination: "<<(*it).getDestino()<<" Duration: "<<(*it).getDuration()<<" ("<<(*it).ticketsAvailable()<<" tickets available)"<<endl;
+            cout<<"Id: "<<(*it).getNumero()<<" Date: "<<(*it).getPartida()<<" Origin: "<<(*it).getOrigem()<<" Destination: "<<(*it).getDestino()<<" Duration: "<<(*it).getDuration()<<endl;
         }
         it++;
     }

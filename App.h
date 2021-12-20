@@ -8,6 +8,7 @@ class App {
 public:
     App(Aeroporto aeroporto);
     int run();
+    void save();
 private:
     Aeroporto aeroporto;
 };

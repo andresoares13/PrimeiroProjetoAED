@@ -22,14 +22,6 @@ int Aeroporto::getnumFLights() {
     return counter;
 }
 
-int Aeroporto::getnumServices() {
-    int counter=0;
-    for (int i=0;i<planes.size();i++){
-        counter+=planes[i].getServicesRealizar().size();
-    }
-    return counter;
-}
-
 void Aeroporto::addLocal(const LocalTransporte &local) {
     locais.insert(local);
 }
@@ -165,19 +157,18 @@ void Aeroporto::setPlane(int i,Aviao plane) {
 void Aeroporto::servicePrinter() {
     vector<Service> done;
     vector<Service> undone;
-    for (int i=0;i<planes.size();i++){
-        queue<Service> qs =planes[i].getServicesRealizar();
-        queue<Service> qs2=planes[i].getServicesRealizados();
-        while (qs.size()>0){
-            undone.push_back(qs.front());
-            qs.pop();
-        }
-        while (qs2.size()>0){
-            done.push_back(qs2.front());
-            qs2.pop();
-        }
 
+    queue<Service> qs =planes[0].getServicesRealizar();
+    queue<Service> qs2=planes[0].getServicesRealizados();
+    while (qs.size()>0){
+        undone.push_back(qs.front());
+        qs.pop();
     }
+    while (qs2.size()>0){
+        done.push_back(qs2.front());
+        qs2.pop();
+    }
+
     cout<<"Services done: "<<endl<<endl;
     for(int i=0;i<done.size();i++){
         cout<<"      type: "<<done[i].getTypeENG()<<" Worker: "<<done[i].getFuncionario()<<" Date: "<<done[i].getData()<<endl<<endl;

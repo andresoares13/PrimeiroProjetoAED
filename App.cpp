@@ -1,8 +1,10 @@
+#include <fstream>
+#include <algorithm>
 #include "App.h"
 
 App::App(Aeroporto aeroporto) {
     this->aeroporto=aeroporto;
-    cout<<endl<<"Airport created"<<endl<<endl<<"The airport has "<<aeroporto.GetPlanes().size()<<" planes and "<<aeroporto.getnumFLights()<<" flights planned"<<endl<<"There are "<<aeroporto.getnumServices()<<" services of cleaning and maintenance planned"<<endl<<endl;
+    cout<<endl<<"Airport created"<<endl<<endl<<"The airport has "<<aeroporto.GetPlanes().size()<<" planes and "<<aeroporto.getnumFLights()<<" flights planned"<<endl<<"There are "<<aeroporto.GetPlanes()[0].getServicesRealizar().size()<<" services of cleaning and maintenance planned"<<endl<<endl;
 }
 
 int App::run() {
@@ -208,6 +210,7 @@ int App::run() {
                 cout<<endl;
                 continue;
             case 8:
+                save();
                 return 0;
             case 2:
             {
@@ -215,10 +218,8 @@ int App::run() {
                 bool valid=false;
                 cout<<"Please write the destination to see the flights"<<endl;
                 cin>>destination;
-                for (int i=0;i<aeroporto.GetPlanes().size();i++){
-                    if (aeroporto.GetPlanes()[i].printVoo(destination)){
-                        valid=true;
-                    }
+                if (aeroporto.GetPlanes()[0].printVoo(destination)){
+                    valid=true;
                 }
                 if (valid==false){
                     cout<<"There is no flight to that destination"<<endl<<endl;
@@ -236,10 +237,92 @@ int App::run() {
                     break;
                 }
                 aeroporto.DoneFlightsPrinter();
+                cout<<endl;
             default:
                 continue;
         }
     }
+
+
+}
+
+void App::save() {
+    vector<Voo> V=aeroporto.GetPlanes()[0].getPlanoVector();
+    queue<Service> S=aeroporto.GetPlanes()[0].getServicesRealizar();
+    queue<Service> DoneS=aeroporto.GetPlanes()[0].getServicesRealizados();
+    ofstream file;
+
+    file.open("VooDone.txt");
+    if (!(file.is_open())){
+        throw invalid_argument("File not found");
+    }
+    vector<Voo> temp;
+    for (int i=0;i<aeroporto.GetPlanes().size();i++){
+        for (int j=0;j<aeroporto.GetPlanes()[i].getDoneFlights().size();j++){
+            temp.push_back(aeroporto.GetPlanes()[i].getDoneFlights()[j]);
+        }
+    }
+    sort(temp.begin(),temp.end());
+    for (int i=0;i<temp.size();i++){
+        if (temp[i].getNumero()<10){
+            file<<"0"<<temp[i].getNumero()<<" "<<temp[i].getPartida()<<" "<<"0"<<temp[i].getDuration()<<" "<<temp[i].getOrigem()<<" "<<temp[i].getDestino()<<endl;
+        }
+        else{
+            file<<temp[i].getNumero()<<" "<<temp[i].getPartida()<<" "<<"0"<<temp[i].getDuration()<<" "<<temp[i].getOrigem()<<" "<<temp[i].getDestino()<<endl;
+        }
+    }
+    file.close();
+    file.open("Voo.txt");
+    if (!(file.is_open())){
+        throw invalid_argument("File not found");
+    }
+    temp.clear();
+    for (int i=0;i<aeroporto.GetPlanes().size();i++){
+        for (int j=0;j<aeroporto.GetPlanes()[i].getPlanoVector().size();j++){
+            temp.push_back(aeroporto.GetPlanes()[i].getPlanoVector()[j]);
+        }
+    }
+    sort(temp.begin(),temp.end());
+    for (int i=0;i<temp.size();i++){
+        if (temp[i].getNumero()<10){
+            file<<"0"<<temp[i].getNumero()<<" "<<temp[i].getPartida()<<" "<<"0"<<temp[i].getDuration()<<" "<<temp[i].getOrigem()<<" "<<temp[i].getDestino()<<endl;
+        }
+        else{
+            file<<temp[i].getNumero()<<" "<<temp[i].getPartida()<<" "<<"0"<<temp[i].getDuration()<<" "<<temp[i].getOrigem()<<" "<<temp[i].getDestino()<<endl;
+        }
+    }
+    file.close();
+
+    file.open("ServiceDone.txt");
+    if (!(file.is_open())){
+        throw invalid_argument("File not found");
+    }
+    vector<Service> temp2;
+    queue<Service> sv=aeroporto.GetPlanes()[0].getServicesRealizados();
+    while( sv.size()>0){
+        temp2.push_back(sv.front());
+        sv.pop();
+    }
+    sort(temp2.begin(),temp2.end());
+    for (int i=0;i<temp2.size();i++){
+        file<<temp2[i].getTypeENG().substr(0,1)<<" "<<temp2[i].getData()<<" "<<temp2[i].getFuncionario()<<endl;
+    }
+    file.close();
+    file.open("service.txt");
+    if (!(file.is_open())){
+        throw invalid_argument("File not found");
+    }
+    temp2.clear();
+    queue<Service> sv2=aeroporto.GetPlanes()[0].getServicesRealizar();
+    while( sv2.size()>0){
+        temp2.push_back(sv2.front());
+        sv2.pop();
+    }
+    sort(temp2.begin(),temp2.end());
+    for (int i=0;i<temp2.size();i++){
+        file<<temp2[i].getTypeENG().substr(0,1)<<" "<<temp2[i].getData()<<" "<<temp2[i].getFuncionario()<<endl;
+    }
+    file.close();
 
 
 }
