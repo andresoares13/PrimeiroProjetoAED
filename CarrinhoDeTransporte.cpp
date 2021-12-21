@@ -1,6 +1,11 @@
 #include <iostream>
 #include "CarrinhoDeTransporte.h"
 
+/**
+ * Creates a transport cart with the given data
+ * @param carruagens number of carriages
+ * @param model cart model
+ */
 CarrinhoDeTransporte::CarrinhoDeTransporte(int carruagens, ModelCar model){
     this-> capacity = carruagens;
     for (int i=0;i<carruagens;i++){
@@ -9,21 +14,31 @@ CarrinhoDeTransporte::CarrinhoDeTransporte(int carruagens, ModelCar model){
     }
 }
 
+/**
+ * Gets all
+ * @return vector of carriages
+ */
 vector<Carruagem> CarrinhoDeTransporte::getBagagem() const {
    return carrinho;
 }
 
+/**
+ * Adds the luggage to the cart using the member-function AddBag of the class Carruagem
+ * @param bag
+ */
 void CarrinhoDeTransporte::AddBagagem(Bagagem bag){
     for (int i=0;i<carrinho.size();i++){
-        if (carrinho[i].AddBag(bag)==false){
+        if (carrinho[i].AddBag(bag)==false)
             continue;
-        }
-        else{
+        else
             break;
-        }
     }
 }
 
+/**
+ * Removes all luggage from the cart using the member-function PopAllBags of the class Carruagem
+ * @return bool
+ */
 bool CarrinhoDeTransporte::ClearCar() {
     bool pop=false;
     for(int i=0;i<carrinho.size();i++){
@@ -40,9 +55,6 @@ bool CarrinhoDeTransporte::ClearCar() {
         cout<<"The transportation car is not totally clear"<<endl;
         return false;
     }
-
-
-
 }
 
 

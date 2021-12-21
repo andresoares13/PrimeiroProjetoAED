@@ -8,6 +8,9 @@ AirportMaker::AirportMaker() {
 
 }
 
+/**
+ * Adds the planes and the transport locals to the airport
+ */
 void AirportMaker::FillAirport() {
     vector<Aviao> planes=PlaneMaker();
     for (int i=0;i<planes.size();i++){
@@ -19,6 +22,10 @@ void AirportMaker::FillAirport() {
     }
 }
 
+/**
+ * Creates the planes by reading information from a file with the details of each plane
+ * @return vector of planes
+ */
 vector<Aviao> AirportMaker::PlaneMaker() {
     vector<Aviao> planes;
     string PlaneLine;
@@ -93,6 +100,10 @@ list<Voo> AirportMaker::VoosMaker(int capacidade, int BagLimit) {
     return voos;
 }
 
+/**
+ * Creates the services by reading the information from a file with the details of each service
+ * @return queue of services
+ */
 queue<Service> AirportMaker::ServicesMaker() {
     queue<Service> services;
     string ServiceLine;
@@ -108,10 +119,18 @@ queue<Service> AirportMaker::ServicesMaker() {
     return services;
 }
 
+/**
+ * Gets the airport object
+ * @return object of the class Aeroporto
+ */
 Aeroporto AirportMaker::GetAeroporto() {
     return this->airport;
 }
 
+/**
+ * Creates the transport locals by reading information from a file with the details of each local
+ * @return
+ */
 vector<LocalTransporte> AirportMaker::LocaisAdder() {
     vector<LocalTransporte> locais;
     string TransporteLine;
@@ -209,6 +228,10 @@ vector<float> AirportMaker::GetHorarios(string tipo) {
     return horarios;
 }
 
+/**
+ * Creates the flights already done by reading information from a file with the details of each flight done
+ * @return vector of flights done
+ */
 vector<Voo> AirportMaker::DoneVooMaker() {
     vector<Voo> voos;
     string VooLine;
@@ -242,6 +265,10 @@ vector<Voo> AirportMaker::DoneVooMaker() {
     return voos;
 }
 
+/**
+ * Creates the services already done by reading information from a file with the details of each service done
+ * @return queue of services already done
+ */
 queue<Service> AirportMaker::DoneServiceMaker() {
     queue<Service> services;
     string ServiceLine;

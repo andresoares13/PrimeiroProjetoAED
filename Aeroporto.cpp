@@ -1,19 +1,32 @@
 #include "Aeroporto.h"
-#include "BinarySearchTree.h"
 #include <iomanip>
-#include <cmath>
 #include <algorithm>
 
+/**
+ * Creates an airport object
+ */
 Aeroporto::Aeroporto(): locais(LocalTransporte("", 0, {}, true)){}
 
+/**
+ * Adds a plane to the vector of planes
+ * @param plane object of the class Aviao
+ */
 void Aeroporto::addPlane(Aviao plane) {
     planes.push_back(plane);
 }
 
+/**
+ * Gets all the planes on the airport
+ * @return vector of planes
+ */
 vector<Aviao> Aeroporto::GetPlanes() {
     return planes;
 }
 
+/**
+ * Gets the total number of flights the airport has
+ * @return number of flights
+ */
 int Aeroporto::getnumFLights() {
     int counter=0;
     for (int i=0;i<planes.size();i++){
@@ -22,15 +35,29 @@ int Aeroporto::getnumFLights() {
     return counter;
 }
 
+/**
+ * Adds a transport location to the binary search tree locais
+ * @param local object of the class LocalTransporte
+ */
 void Aeroporto::addLocal(const LocalTransporte &local) {
     locais.insert(local);
 }
 
+/**
+ * Checks if the transport type received is valid
+ * @param tipo transport type
+ */
 void verifyTipo(string tipo) {
     if(tipo!="metro" && tipo!="autocarro" && tipo!="comboio" && tipo!="")
         throw invalid_argument("Invalid transport");
 }
 
+/**
+ * Displays the content of the BST
+ * @param os
+ * @param l1 object of the class LocalTransporte
+ * @return
+ */
 ostream& operator<<(ostream& os, const LocalTransporte& l1){
     if(!l1.isAvailable())
         return os;
@@ -49,10 +76,19 @@ ostream& operator<<(ostream& os, const LocalTransporte& l1){
     return os;
 }
 
+/**
+ * Displays the content of the BST locais
+ */
 void Aeroporto::printLocais() const {
     locais.printTree();
 }
 
+/**
+ * Gets all locations close to the airport according to the criteria chosen by the passenger
+ * @param tipo transport type
+ * @param distance maximum distance desired
+ * @return vector of transport locations
+ */
 vector<LocalTransporte> Aeroporto::getLocais(string tipo, float distance) const {
     vector<LocalTransporte> res;
     BSTItrIn<LocalTransporte> it(locais);
@@ -69,6 +105,11 @@ vector<LocalTransporte> Aeroporto::getLocais(string tipo, float distance) const 
     return res;
 }
 
+/**
+ * Gets all locations close to the airport according to the maximum distance chosen by the passenger
+ * @param distance maximum distance desired
+ * @return vector of transport locations
+ */
 vector<LocalTransporte> Aeroporto::getLocais(float distance) {
     vector<LocalTransporte> res;
     BSTItrIn<LocalTransporte> it(locais);
@@ -80,6 +121,15 @@ vector<LocalTransporte> Aeroporto::getLocais(float distance) {
     return res;
 }
 
+/**
+ * If transport with the type and distance given exists, changes its availability and time.
+ * Otherwise, creates a new location with the given data and adds it to the BST locais
+ * @param tipo transport type
+ * @param distance distance to the airport
+ * @param horariosPartida departure times
+ * @param availability the transport is working (true) or isn't (false)
+ * @return
+ */
 bool Aeroporto::updateLocal(string tipo, float distance, vector<float> horariosPartida, bool availability) {
     BSTItrIn<LocalTransporte> it(locais);
     verifyTipo(tipo);
@@ -95,17 +145,25 @@ bool Aeroporto::updateLocal(string tipo, float distance, vector<float> horariosP
     return false;
 }
 
+/**
+ * From all the transports which distance is lower than the given one, returns the schedule of the first transport of the given type, if it exists.
+ * If there's no transport from the given type at , at most, that distance, it puts in previous the closest one to the airport.
+ * And in next the next transport of that type, if it exists, returning an empty vector
+ * @param tipo transport type
+ * @param distance maximum distance desired
+ * @param previous object of the class LocalTransporte
+ * @param next object of the class LocalTransporte
+ * @return vector of departure times
+ */
 vector<float> Aeroporto::consultLocais(string tipo, float distance, LocalTransporte& previous, LocalTransporte& next) const {
     vector<float> res;
     BSTItrIn<LocalTransporte> it(locais);
     verifyTipo(tipo);
-    //VERIFICA SE EXISTE ALGUM TRANSPORTE DENTRO DISTÂNCIA DADA
     if(it.retrieve().getDistance()<distance)
         previous = it.retrieve();
     else
         cout << "There is no transportation method at a maximum distance of " << distance <<" km"<< endl;
 
-    //VERIFICA SE EXISTE ALGUM TRANSPORTE DO TIPO DADO
     if(getLocais(tipo).empty()){
         cout<<"There is no " << tipo;
         return res;

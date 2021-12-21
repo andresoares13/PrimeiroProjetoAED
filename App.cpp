@@ -323,6 +323,4 @@ void App::save() {
         file<<temp2[i].getTypeENG().substr(0,1)<<" "<<temp2[i].getData()<<" "<<temp2[i].getFuncionario()<<endl;
     }
     file.close();
-
-
 }

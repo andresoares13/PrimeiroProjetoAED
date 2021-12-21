@@ -2,6 +2,13 @@
 #include <iostream>
 #include "Aviao.h"
 
+/**
+ * Creates a plane with the given data and sets its capacity and weight limit per luggage
+ * @param matricula license plate
+ * @param tipo plane model
+ * @param plano list of flights
+ * @param servicesRealizar queue of services to be performed
+ */
 Aviao::Aviao(string matricula, string tipo,  list<Voo> plano, queue<Service> servicesRealizar) {
     this->matricula=matricula;
     this->tipo=tipo;
@@ -24,50 +31,97 @@ Aviao::Aviao(string matricula, string tipo,  list<Voo> plano, queue<Service> ser
 
 }
 
+/**
+ * Gets the license plate of the plane
+ * @return license plate
+ */
 string Aviao::getMatricula() const {
     return this->matricula;
 }
 
+/**
+ * Gets the plane model
+ * @return plane model
+ */
 string Aviao::getTipo() const {
     return this->tipo;
 }
 
+/**
+ * Gets the maximum number of passengers the plane can take
+ * @return plane capacity
+ */
 int Aviao::getCapacidade() const {
     return this->capacity;
 }
 
+/**
+ * Gets a list of flights for the plane
+ * @return list of flights
+ */
 list<Voo> Aviao::getPlano() const {
     return this->plano;
 }
 
+/**
+ * Gets a queue of services already performed
+ * @return queue of services already performed
+ */
 queue<Service> Aviao::getServicesRealizados() const {
     return this->servicesRealizados;
 }
 
+/**
+ * Gets a queue of services to perform
+ * @return queue of services to perform
+ */
 queue<Service> Aviao::getServicesRealizar() const {
     return this->servicesRealizar;
 }
 
+/**
+ * Adds a flight to the list of flights
+ * @param voo object of the class Voo
+ */
 void Aviao::addVoo(const Voo& voo) {
     plano.push_back(voo);
 }
 
+/**
+ * Checks if the plane is currently not working due to malfunctions.
+ * If that's the case, returns true, otherwise returns false
+ * @return bool
+ */
 bool Aviao::isBroken() const {
     return state;
 }
 
+/**
+ * Sets the state to true, when the plane is currently not working due to malfunctions
+ */
 void Aviao::setBroken() {
     state=true;
 }
 
+/**
+ * Gets the weight limit per luggage
+ * @return weight limit per luggage
+ */
 int Aviao::getLimitPerBag() const {
     return LimitPerBag;
 }
 
+/**
+ * Adds a service to the vector of services to sort
+ * @param s object of the class Service
+ */
 void Aviao::AddToSort(const Service s) {
     ServiceSorter.push_back(s);
 }
 
+/**
+ * Sorts the services on the vector ServiceSorter and then adds it to the queue servicesRealizar
+ */
 void Aviao::SortAndPush() {
     while(servicesRealizar.size()>0){
         ServiceSorter.push_back(servicesRealizar.front());
@@ -136,22 +190,38 @@ bool Aviao::Fly(string data, string origem, string destino, bool checkin) {
     return IFlew;
 }
 
-
+/**
+ * Gets all the flights in a vector
+ * @return vector of flights
+ */
 vector<Voo> Aviao::getPlanoVector() {
     vector<Voo> voos;
     voos.insert(voos.end(),plano.begin(),plano.end());
     return voos;
 }
 
+/**
+ * Sets the list of flights to the data given
+ * @param lv list of flights
+ */
 void Aviao::setPlano(list<Voo> lv) {
     this->plano=lv;
 }
 
+/**
+ * Sets the attributes servicesRealizar and servicesRealizados to sv and sv2, respectively
+ * @param sv queue of services
+ * @param sv2 queue of services
+ */
 void Aviao::setServices(queue<Service> sv, queue<Service> sv2) {
     servicesRealizar=sv;
     servicesRealizados=sv2;
 }
 
+/**
+ * Updates the flight with the same date, origin and destination given
+ * @param v object of the class Voo
+ */
 void Aviao::setVoo(Voo v) {
     list<Voo> :: iterator it=plano.begin();
     list<Voo> :: iterator it2=plano.end();
@@ -163,6 +233,11 @@ void Aviao::setVoo(Voo v) {
     }
 }
 
+/**
+ * Displays all the information about the flights with the destination given
+ * @param destination destination of the flight
+ * @return bool
+ */
 bool Aviao::printVoo(string destination) {
     bool value=false;
     list<Voo> :: iterator it=plano.begin();
@@ -177,12 +252,18 @@ bool Aviao::printVoo(string destination) {
     return value;
 }
 
+/**
+ * Adds the flight done to the vector of flights done (planoDone)
+ * @param v object of the class Voo
+ */
 void Aviao::addplanoDone(Voo v) {
     planoDone.push_back(v);
 }
 
+/**
+ * Gets all the flights already done
+ * @return vector of flights already done
+ */
 vector<Voo> Aviao::getDoneFlights() {
     return planoDone;
 }
-
-
