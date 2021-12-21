@@ -82,12 +82,6 @@ bool Carruagem::isClear() const {
     return p;
 }
 
-string Carruagem::get() {
-    for (int i=0;i<carruagem.size();i++){
-        cout<<carruagem[i].size()<<endl;
-    }
-    return "";
-}
 
 /**
  * Gets the maximum capacity of the carriage

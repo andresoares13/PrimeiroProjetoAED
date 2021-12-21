@@ -66,42 +66,46 @@ $(function() {
   <div class="headertitle"><div class="title">C:/Users/andre/Desktop/untitled1/Passageiro.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">//</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">// Created by andre on 02-12-2021.</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">//</span></div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef UNTITLED1_PASSAGEIRO_H</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define UNTITLED1_PASSAGEIRO_H</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#ifndef UNTITLED1_PASSAGEIRO_H</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#define UNTITLED1_PASSAGEIRO_H</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;Bagagem.h&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">using namespace </span>std;</div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;Bagagem.h&quot;</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">using namespace </span>std;</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="class_passageiro.html">   13</a></span><span class="keyword">class </span><a class="code hl_class" href="class_passageiro.html">Passageiro</a> {</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <a class="code hl_class" href="class_passageiro.html">Passageiro</a>(<span class="keywordtype">int</span> ID, <span class="keywordtype">int</span> num_tickets, <span class="keywordtype">bool</span> bagagem, <span class="keywordtype">bool</span> checkin);</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordtype">bool</span> isBagagem() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordtype">bool</span> isCheckin() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordtype">int</span> getNumTickets() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordtype">int</span> getID() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordtype">void</span> setNumTickets(<span class="keywordtype">int</span> num);</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keywordtype">void</span> setCheckin(<span class="keywordtype">bool</span> checkin);</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <a class="code hl_class" href="class_bagagem.html">Bagagem</a> GetBag() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordtype">int</span> ID; <span class="comment">//número de identificação do passageiro</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keywordtype">int</span> num_tickets;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordtype">bool</span> bagagem;</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordtype">bool</span> checkin;</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    vector&lt;Bagagem&gt; bag; <span class="comment">//mala unica, pode ter ou nao</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>};</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#endif </span><span class="comment">//UNTITLED1_PASSAGEIRO_H</span></div>
-<div class="ttc" id="aclass_bagagem_html"><div class="ttname"><a href="class_bagagem.html">Bagagem</a></div><div class="ttdef"><b>Definition:</b> Bagagem.h:9</div></div>
-<div class="ttc" id="aclass_passageiro_html"><div class="ttname"><a href="class_passageiro.html">Passageiro</a></div><div class="ttdef"><b>Definition:</b> Passageiro.h:13</div></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="class_passageiro.html">    9</a></span><span class="keyword">class </span><a class="code hl_class" href="class_passageiro.html">Passageiro</a> {</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <a class="code hl_function" href="class_passageiro.html#a00f4b680742e0c85e4086d80d2cb6b13">Passageiro</a>(<span class="keywordtype">int</span> ID, <span class="keywordtype">int</span> num_tickets, <span class="keywordtype">bool</span> bagagem, <span class="keywordtype">bool</span> checkin);</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_passageiro.html#ab762f8f2e25ab25ce48854a69995ec48">isBagagem</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_passageiro.html#acfe3a6144b2ece29825b3e16baf6126f">isCheckin</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_passageiro.html#a2bc458f682089f63b80a13be52e049f8">getNumTickets</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_passageiro.html#a46494ff4d676e3d547af426ac767d001">getID</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_passageiro.html#af9b2ce5210e10ecc89eb7f96753dcd09">setNumTickets</a>(<span class="keywordtype">int</span> num);</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_passageiro.html#a8837cdc7459a9c7af2477093a046a942">setCheckin</a>(<span class="keywordtype">bool</span> checkin);</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <a class="code hl_class" href="class_bagagem.html">Bagagem</a> <a class="code hl_function" href="class_passageiro.html#aadea25cc8bff6c764372090f2d72b6d9">GetBag</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">int</span> ID; <span class="comment">//número de identificação do passageiro</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keywordtype">int</span> num_tickets;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordtype">bool</span> bagagem;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keywordtype">bool</span> checkin;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    vector&lt;Bagagem&gt; bag; <span class="comment">//mala unica, pode ter ou nao</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>};</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#endif </span><span class="comment">//UNTITLED1_PASSAGEIRO_H</span></div>
+<div class="ttc" id="aclass_bagagem_html"><div class="ttname"><a href="class_bagagem.html">Bagagem</a></div><div class="ttdef"><b>Definition:</b> Bagagem.h:4</div></div>
+<div class="ttc" id="aclass_passageiro_html"><div class="ttname"><a href="class_passageiro.html">Passageiro</a></div><div class="ttdef"><b>Definition:</b> Passageiro.h:9</div></div>
+<div class="ttc" id="aclass_passageiro_html_a00f4b680742e0c85e4086d80d2cb6b13"><div class="ttname"><a href="class_passageiro.html#a00f4b680742e0c85e4086d80d2cb6b13">Passageiro::Passageiro</a></div><div class="ttdeci">Passageiro(int ID, int num_tickets, bool bagagem, bool checkin)</div><div class="ttdef"><b>Definition:</b> Passageiro.cpp:13</div></div>
+<div class="ttc" id="aclass_passageiro_html_a2bc458f682089f63b80a13be52e049f8"><div class="ttname"><a href="class_passageiro.html#a2bc458f682089f63b80a13be52e049f8">Passageiro::getNumTickets</a></div><div class="ttdeci">int getNumTickets() const</div><div class="ttdef"><b>Definition:</b> Passageiro.cpp:61</div></div>
+<div class="ttc" id="aclass_passageiro_html_a46494ff4d676e3d547af426ac767d001"><div class="ttname"><a href="class_passageiro.html#a46494ff4d676e3d547af426ac767d001">Passageiro::getID</a></div><div class="ttdeci">int getID() const</div><div class="ttdef"><b>Definition:</b> Passageiro.cpp:45</div></div>
+<div class="ttc" id="aclass_passageiro_html_a8837cdc7459a9c7af2477093a046a942"><div class="ttname"><a href="class_passageiro.html#a8837cdc7459a9c7af2477093a046a942">Passageiro::setCheckin</a></div><div class="ttdeci">void setCheckin(bool checkin)</div><div class="ttdef"><b>Definition:</b> Passageiro.cpp:53</div></div>
+<div class="ttc" id="aclass_passageiro_html_aadea25cc8bff6c764372090f2d72b6d9"><div class="ttname"><a href="class_passageiro.html#aadea25cc8bff6c764372090f2d72b6d9">Passageiro::GetBag</a></div><div class="ttdeci">Bagagem GetBag() const</div><div class="ttdef"><b>Definition:</b> Passageiro.cpp:77</div></div>
+<div class="ttc" id="aclass_passageiro_html_ab762f8f2e25ab25ce48854a69995ec48"><div class="ttname"><a href="class_passageiro.html#ab762f8f2e25ab25ce48854a69995ec48">Passageiro::isBagagem</a></div><div class="ttdeci">bool isBagagem() const</div><div class="ttdef"><b>Definition:</b> Passageiro.cpp:29</div></div>
+<div class="ttc" id="aclass_passageiro_html_acfe3a6144b2ece29825b3e16baf6126f"><div class="ttname"><a href="class_passageiro.html#acfe3a6144b2ece29825b3e16baf6126f">Passageiro::isCheckin</a></div><div class="ttdeci">bool isCheckin() const</div><div class="ttdef"><b>Definition:</b> Passageiro.cpp:37</div></div>
+<div class="ttc" id="aclass_passageiro_html_af9b2ce5210e10ecc89eb7f96753dcd09"><div class="ttname"><a href="class_passageiro.html#af9b2ce5210e10ecc89eb7f96753dcd09">Passageiro::setNumTickets</a></div><div class="ttdeci">void setNumTickets(int num)</div><div class="ttdef"><b>Definition:</b> Passageiro.cpp:69</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

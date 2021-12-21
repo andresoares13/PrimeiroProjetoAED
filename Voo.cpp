@@ -152,7 +152,12 @@ Passageiro &Voo::findPassageiro(int ID) {
     throw logic_error("Passenger does not exist");
 }
 
-
+/**
+ *Tells us the optiomal number of carriages needed for the transportation car based on the model of each carriage and the number of passengers that chose the auto chekcin option
+ * It gives us a number in a way that it is guaranteed that there will be enough space for every luggage
+ * @param model model of the carriage
+ * @return numbers of carriages needed
+ */
 int Voo::numCarruagens(ModelCar model) const{
     int p=0;
     for (int i=0;i<passageiros.size();i++){
@@ -165,7 +170,10 @@ int Voo::numCarruagens(ModelCar model) const{
     return c;
 }
 
-
+/**
+ * Selects the optimal model of carriage to use in the Transportation car (for the lugagge) by the number of passengers that chose the auto checkin option
+ * @return returns the string that represents the model
+ */
 string Voo::ModelSelector() {
     int c;
     for(int i=0;i<passageiros.size();i++){
@@ -222,7 +230,10 @@ void Voo::BuyTickets() {
     }
 }
 
-
+/**
+ * It is called when the user chooses a flight and a plane and adds a random number of passengers to the flight given its capacity given by the parameter type
+ * @param type represents the capacity of the flight (the capacity is given by the type of plane therefore the name type)
+ */
 void Voo::AddRandomP(int type) {
     int n;
     srand (time(NULL));

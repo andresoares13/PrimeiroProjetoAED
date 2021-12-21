@@ -1,12 +1,18 @@
 #include <fstream>
 #include <algorithm>
 #include "App.h"
-
+/**
+ * It is the constructor of the app and it tells the app which airport to run the program on
+ * @param aeroporto object of class Aeroporto that represents the airport where we want to run the program
+ */
 App::App(Aeroporto aeroporto) {
     this->aeroporto=aeroporto;
     cout<<endl<<"Airport created"<<endl<<endl<<"The airport has "<<aeroporto.GetPlanes().size()<<" planes and "<<aeroporto.getnumFLights()<<" flights planned"<<endl<<"There are "<<aeroporto.GetPlanes()[0].getServicesRealizar().size()<<" services of cleaning and maintenance planned"<<endl<<endl;
 }
-
+/**
+ *Runs the loop of the program itself where the user can choose what they want to do. They have the option to both see many many components of the airport and also fly
+ * @return It returns 0 which is used in the main.cpp to end the program
+ */
 int App::run() {
     int option;
     int counter;
@@ -68,16 +74,6 @@ int App::run() {
                 cin>>plane;
                 if (cin.fail()){
                     throw invalid_argument("Please choose a valid number");
-                }
-                for (int i=0;i<aeroporto.GetPlanes()[plane-1].getPlanoVector().size();i++){
-                    if (flight==aeroporto.GetPlanes()[plane-1].getPlanoVector()[i].getNumero()){
-                        exists=true;
-                    }
-                }
-                if (exists==false){
-                    cout<<"That plane does not have that flight scheduled"<<endl<<endl;
-                    cin.clear();
-                    break;
                 }
                 if (plane>aeroporto.GetPlanes().size()){
                     cout<<"That plane does not exist, sorry"<<endl<<endl;
@@ -245,7 +241,9 @@ int App::run() {
 
 
 }
-
+/**
+ * Writes to the files the flights and services still to be done and also the ones that are already completed so when we run the program again the information from what has already been done is kept
+ */
 void App::save() {
     vector<Voo> V=aeroporto.GetPlanes()[0].getPlanoVector();
     queue<Service> S=aeroporto.GetPlanes()[0].getServicesRealizar();

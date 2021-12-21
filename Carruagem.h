@@ -15,7 +15,6 @@ public:
     bool AddBag(Bagagem bag); //adds the bag, returns false if the chariot is full
     void PopAllBags();
     bool isClear() const;
-    string get();
 
     int getCapacity() const;
 

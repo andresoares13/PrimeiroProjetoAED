@@ -172,7 +172,11 @@ vector<LocalTransporte> AirportMaker::LocaisAdder() {
 
     return locais;
 }
-
+/**
+ * The file that contains the schedules of the transportation methods has one line for each type so we get the type as a parameter so that we know when to stop reading the file. Given the type it transfers every given time of the line of the file that represents it and transfers them to a vector of floats that is returned by the function
+ * @param tipo method of transportation
+ * @return vector of floats that represent the schedule of a specified method of transportation
+ */
 vector<float> AirportMaker::GetHorarios(string tipo) {
     int type;
     if (tipo=="metro"){

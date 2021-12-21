@@ -132,7 +132,10 @@ void Aviao::SortAndPush() {
         servicesRealizar.push(ServiceSorter[i]);
     }
 }
-
+/**
+ * First checks if the service and the flight have the same date and if so it does the service itself
+ * @return returns true if the service was done (which implies that it was on the same date of the flight), false otherwise
+ */
 bool Aviao::isService() {
     bool SDone=false;
     if (servicesRealizar.front().getData()==plano.begin()->getPartida()){
@@ -142,7 +145,17 @@ bool Aviao::isService() {
     }
     return SDone;
 }
-
+/**
+ * Goes through the list of flights and if there is a flight with the same parameters as the ones given then the flight is performed.
+ * It also adds the flight done as well as any other flight with a previous date to the vector of completed flights
+ * It lets the user know the specifics of the Car that transports their bag should they choose the auto check in option
+ * Finally it rewrites the list of flights so that we are only left with the ones still yet to be done
+ * @param data date of the flight
+ * @param origem place of origin
+ * @param destino destination
+ * @param checkin true if the user chose the auto check in option
+ * @return returns true if the plane was able to make the flight, in other words, if the flight with the given parameters exists
+ */
 bool Aviao::Fly(string data, string origem, string destino, bool checkin) {
     bool IFlew=false;
     bool Done=false;

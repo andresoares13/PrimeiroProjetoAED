@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['voosmaker_0',['VoosMaker',['../class_airport_maker.html#a671e8a5bc9cd10256f0e9ca26ae33adb',1,'AirportMaker']]]
+  ['bagagem_0',['Bagagem',['../class_bagagem.html#a4ecfe9f8c24322389e42a4bb90db9215',1,'Bagagem']]],
+  ['buytickets_1',['BuyTickets',['../class_voo.html#ae199804aa02dd578d7212e768386d052',1,'Voo']]]
 ];

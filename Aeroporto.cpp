@@ -187,7 +187,13 @@ vector<float> Aeroporto::consultLocais(string tipo, float distance, LocalTranspo
         cout << " closest "<< next.getTipo()<<": "<< next.getDistance() << "km" << endl;
     return res;
 }
-
+/**
+ * Changes the desired plane to have the same attributes as the given plane, used when the flight is made and the it is needed to save the changes made to the plane's services and flight list.
+ * It also goes through every plane and changes their flights so that every flight that happens on a date before is considered as completed, because if you fly on a certain date, it wouldn't make sense to still be able to book a flight to a previous date
+ * It does the same to the services and in the end every plane is synchronized in terms of the date of their available flights and services
+ * @param i allows us to know which plane did the flight
+ * @param plane gives the plane to be set in the vector of planes in the airport
+ */
 void Aeroporto::setPlane(int i,Aviao plane) {
     planes[i-1]=plane;
     for (int j=0;j<planes.size();j++){
@@ -211,7 +217,9 @@ void Aeroporto::setPlane(int i,Aviao plane) {
         planes[j].setServices(s,s2);
     }
 }
-
+/**
+ * Transfers the services from their queues to vectors to then print them to tell the user what are the ones completed and the ones still yet to be done
+ */
 void Aeroporto::servicePrinter() {
     vector<Service> done;
     vector<Service> undone;
@@ -236,7 +244,9 @@ void Aeroporto::servicePrinter() {
         cout<<"      type: "<<undone[i].getTypeENG()<<" Worker: "<<undone[i].getFuncionario()<<" Date: "<<undone[i].getData()<<endl<<endl;
     }
 }
-
+/**
+ * Goes through every plane to get their completed flights, puts them into a vector, sorts them by date and prints them so that the user may see the flights that are done
+ */
 void Aeroporto::DoneFlightsPrinter() {
     vector<Voo> temp;
     for (int i=0;i<planes.size();i++){
